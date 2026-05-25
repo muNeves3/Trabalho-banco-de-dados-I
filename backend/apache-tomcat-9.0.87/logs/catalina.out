@@ -1,0 +1,102 @@
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 15:27:21.014 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 15:27:21.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 15:27:21.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 15:27:21.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 15:27:21.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 15:27:21.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 15:27:21.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 15:27:21.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 15:27:21.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 15:27:21.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 15:27:21.040 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 15:27:21.398 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 15:27:21.422 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [573] milliseconds
+25-May-2026 15:27:21.461 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 15:27:21.463 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 15:27:21.478 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022.war]
+25-May-2026 15:27:21.967 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 15:27:22.008 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022.war] has finished in [530] ms
+25-May-2026 15:27:22.009 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 15:27:22.041 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [32] ms
+25-May-2026 15:27:22.041 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 15:27:22.193 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [151] ms
+25-May-2026 15:27:22.193 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 15:27:22.206 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [13] ms
+25-May-2026 15:27:22.206 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT]
+25-May-2026 15:27:22.218 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT] has finished in [12] ms
+25-May-2026 15:27:22.218 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 15:27:22.241 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [23] ms
+25-May-2026 15:27:22.246 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 15:27:22.261 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [837] milliseconds
+25-May-2026 15:38:42.379 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 15:38:42.380 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 15:38:42.389 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 15:38:42.417 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 15:38:42.426 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 16:58:31.109 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 16:58:31.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 16:58:31.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 16:58:31.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 16:58:31.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 16:58:31.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 16:58:31.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 16:58:31.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 16:58:31.132 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 16:58:31.134 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 16:58:31.480 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 16:58:31.510 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [662] milliseconds
+25-May-2026 16:58:31.556 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 16:58:31.557 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 16:58:31.570 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022.war]
+25-May-2026 16:58:32.078 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 16:58:32.131 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022.war] has finished in [558] ms
+25-May-2026 16:58:32.131 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 16:58:32.172 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [41] ms
+25-May-2026 16:58:32.172 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 16:58:32.361 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [189] ms
+25-May-2026 16:58:32.362 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 16:58:32.381 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [19] ms
+25-May-2026 16:58:32.381 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT]
+25-May-2026 16:58:32.401 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT] has finished in [20] ms
+25-May-2026 16:58:32.401 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 16:58:32.424 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [23] ms
+25-May-2026 16:58:32.429 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 16:58:32.439 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [926] milliseconds
+25-May-2026 16:58:50.252 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 16:58:50.252 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 16:58:50.258 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 16:58:50.279 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 16:58:50.286 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
