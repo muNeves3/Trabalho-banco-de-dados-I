@@ -43,7 +43,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
             "/user/create",
             "/user/update",
             "/user/delete",
-            "/user/read"    
+            "/user/read",
+            ""
         })
 public class UserController extends HttpServlet {
     
@@ -176,7 +177,12 @@ public class UserController extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/user");
                 }
                 break;
-            }            
+            }
+
+            case "": {
+                String retorno = "hello, world";
+                response.getOutputStream().print(retorno);
+            }
             
         }
         
@@ -257,7 +263,7 @@ public class UserController extends HttpServlet {
                         } else {
                             String fieldName = item.getFieldName();
                             String fileName = item.getName();
-                            if (fieldName.equals("avatar") && !fileName.isBlank()) {
+                            if (fieldName.equals("avatar") && !fileName.isEmpty()) {
                                 // Dados adicionais (não usado nesta aplicação)
                                 String contentType = item.getContentType();
                                 boolean isInMemory = item.isInMemory();

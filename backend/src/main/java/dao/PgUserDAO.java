@@ -154,13 +154,13 @@ public class PgUserDAO implements UserDAO {
     public void update(User user) throws SQLException {
         String query;
 
-        if ((user.getSenha() == null) || (user.getSenha().isBlank())) {
-            if ((user.getAvatar() == null) || (user.getAvatar().isBlank()))
+        if ((user.getSenha() == null) || (user.getSenha().isEmpty())) {
+            if ((user.getAvatar() == null) || (user.getAvatar().isEmpty()))
                 query = UPDATE_QUERY;
             else
                 query = UPDATE_WITH_AVATAR_QUERY;
         } else {
-            if ((user.getAvatar() == null) || (user.getAvatar().isBlank()))
+            if ((user.getAvatar() == null) || (user.getAvatar().isEmpty()))
                 query = UPDATE_WITH_PASSWORD_QUERY;
             else
                 query = UPDATE_WITH_AVATAR_AND_PASSWORD_QUERY;
@@ -171,15 +171,15 @@ public class PgUserDAO implements UserDAO {
             statement.setString(2, user.getNome());
             statement.setDate(3, user.getNascimento());
 
-            if ((user.getSenha() == null) || (user.getSenha().isBlank())) {
-                if ((user.getAvatar() == null) || (user.getAvatar().isBlank())) {
+            if ((user.getSenha() == null) || (user.getSenha().isEmpty())) {
+                if ((user.getAvatar() == null) || (user.getAvatar().isEmpty())) {
                     statement.setInt(4, user.getId());
                 } else {
                     statement.setString(4, user.getAvatar());
                     statement.setInt(5, user.getId());
                 }
             } else {
-                if ((user.getAvatar() == null) || (user.getAvatar().isBlank())) {
+                if ((user.getAvatar() == null) || (user.getAvatar().isEmpty())) {
                     statement.setString(4, user.getSenha());
                     statement.setInt(5, user.getId());
                 } else {

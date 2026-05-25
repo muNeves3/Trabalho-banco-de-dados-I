@@ -17,7 +17,7 @@ import java.util.Properties;
 public abstract class ConnectionFactory {
 
     private static ConnectionFactory instance = null;
-    protected static String propertiesPath = "../../conf/datasource.properties";
+    protected static String propertiesPath = "datasource.properties";
     private static String dbServer;
     
     protected ConnectionFactory() {

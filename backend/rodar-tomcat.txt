@@ -1,0 +1,8 @@
+-------------------------
+  -- iniciando servidor tomcat --
+    cd apache-tomcat-9.0.87/bin
+    ./startup.sh
+
+  -- parando servidor --
+    ./shutdown.sh
+-------------------------
