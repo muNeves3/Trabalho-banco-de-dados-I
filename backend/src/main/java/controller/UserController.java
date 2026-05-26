@@ -44,7 +44,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
             "/user/update",
             "/user/delete",
             "/user/read",
-            ""
+            "/"
         })
 public class UserController extends HttpServlet {
     
@@ -104,7 +104,9 @@ public class UserController extends HttpServlet {
                     Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
                     String json = gson.toJson(userList);
 
-                    response.getOutputStream().print(json);
+                    response.setContentType("application/json");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().print(json);
 
                 } catch (ClassNotFoundException | IOException | SQLException ex) {
                     request.getSession().setAttribute("error", ex.getMessage());
@@ -179,9 +181,14 @@ public class UserController extends HttpServlet {
                 break;
             }
 
-            case "": {
-                String retorno = "hello, world";
-                response.getOutputStream().print(retorno);
+            case "/": {
+              String retorno = "{\"message\": \"hello, world\"}";
+                
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().print(retorno);
+                
+                break; 
             }
             
         }

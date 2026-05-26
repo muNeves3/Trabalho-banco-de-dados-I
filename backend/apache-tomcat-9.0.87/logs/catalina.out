@@ -967,3 +967,1013 @@ NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED -
 25-May-2026 18:12:36.929 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [bd2022] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
 25-May-2026 18:12:36.934 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
 25-May-2026 18:12:36.943 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:34:17.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:34:17.918 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:34:17.919 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:34:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:34:17.928 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:34:17.929 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:34:18.268 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:34:18.284 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [581] milliseconds
+25-May-2026 18:34:18.309 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:34:18.310 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:34:18.320 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:34:18.499 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [179] ms
+25-May-2026 18:34:18.500 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:34:18.508 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@3243b914]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:34:18.509 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [9] ms
+25-May-2026 18:34:18.510 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:34:18.541 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [31] ms
+25-May-2026 18:34:18.541 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:34:18.703 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [162] ms
+25-May-2026 18:34:18.704 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:34:18.724 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [20] ms
+25-May-2026 18:34:18.725 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:34:18.741 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [16] ms
+25-May-2026 18:34:18.744 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:34:18.757 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [472] milliseconds
+25-May-2026 18:36:38.761 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context []
+25-May-2026 18:36:38.771 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:36:39.016 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:36:39.025 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [254] ms
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:37:07.464 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:37:07.471 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:37:07.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:37:07.480 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:37:07.480 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:37:07.480 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:37:07.480 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:37:07.480 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:37:07.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:37:07.484 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:37:07.845 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:37:07.857 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector["http-nio-8080"]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1011)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:554)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:1046)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:686)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:709)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:302)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:472)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:565)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+		at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:268)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:223)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1334)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1347)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:654)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:75)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1009)
+		... 11 more
+25-May-2026 18:37:07.859 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [563] milliseconds
+25-May-2026 18:37:07.894 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:37:07.895 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:37:07.907 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:37:08.414 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:37:08.456 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [548] ms
+25-May-2026 18:37:08.456 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:37:08.461 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@6331250e]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:37:08.464 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [8] ms
+25-May-2026 18:37:08.464 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:37:08.501 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [37] ms
+25-May-2026 18:37:08.504 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:37:08.656 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [152] ms
+25-May-2026 18:37:08.662 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:37:08.680 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [18] ms
+25-May-2026 18:37:08.680 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:37:08.703 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [23] ms
+25-May-2026 18:37:08.707 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [847] milliseconds
+25-May-2026 18:37:08.709 SEVERE [main] org.apache.catalina.core.StandardServer.await Failed to create server shutdown socket on address [localhost] and port [8005] (base port [8005] and offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:565)
+		at java.base/sun.nio.ch.Net.bind(Net.java:554)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:581)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:825)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:773)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+25-May-2026 18:37:08.710 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:37:08.710 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 18:37:08.737 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:37:08.738 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:37:19.693 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 18:37:19.695 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:37:19.702 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 18:37:19.720 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:37:19.724 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:44:40.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:44:40.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:44:40.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:44:40.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:44:40.207 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:44:40.207 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:44:40.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:44:40.210 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:44:40.210 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:44:40.210 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:44:40.210 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:44:40.211 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:44:40.523 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:44:40.550 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [544] milliseconds
+25-May-2026 18:44:40.586 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:44:40.587 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:44:40.601 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:44:41.000 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:44:41.037 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [435] ms
+25-May-2026 18:44:41.038 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:44:41.041 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@15723761]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:44:41.044 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [5] ms
+25-May-2026 18:44:41.044 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:44:41.071 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [27] ms
+25-May-2026 18:44:41.072 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:44:41.250 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [178] ms
+25-May-2026 18:44:41.251 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:44:41.275 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [24] ms
+25-May-2026 18:44:41.276 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:44:41.297 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [21] ms
+25-May-2026 18:44:41.300 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:44:41.311 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [759] milliseconds
+25-May-2026 18:45:42.642 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 18:45:42.643 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:45:42.652 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 18:45:42.676 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:45:42.684 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:45:53.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:45:53.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:45:53.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:45:53.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:45:53.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:45:53.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:45:53.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:45:53.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:45:53.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:45:53.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:45:53.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:45:53.041 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:45:53.042 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:45:53.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:45:53.044 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:45:53.309 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:45:53.328 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [416] milliseconds
+25-May-2026 18:45:53.357 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:45:53.358 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:45:53.368 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:45:53.379 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT] was found with a last modified time that did not match the associated WAR. It will be deleted.
+25-May-2026 18:45:53.866 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:45:53.917 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [549] ms
+25-May-2026 18:45:53.919 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:45:53.921 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@7004e3d]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:45:53.925 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [6] ms
+25-May-2026 18:45:53.925 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:45:53.966 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [41] ms
+25-May-2026 18:45:53.967 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:45:54.158 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [190] ms
+25-May-2026 18:45:54.158 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:45:54.173 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [15] ms
+25-May-2026 18:45:54.173 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:45:54.188 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [14] ms
+25-May-2026 18:45:54.190 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:45:54.202 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [873] milliseconds
+25-May-2026 18:46:06.066 SEVERE [http-nio-8080-exec-3] dao.PgUserDAO.all DAO
+	org.postgresql.util.PSQLException: ERROR: relation "j2ee.user" does not exist
+  Position: 23
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+		at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+		at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134)
+		at dao.PgUserDAO.all(PgUserDAO.java:234)
+		at controller.UserController.doGet(UserController.java:102)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:210)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:154)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:179)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:154)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:670)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1786)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+25-May-2026 18:47:10.358 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 18:47:10.359 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:10.362 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 18:47:10.383 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [ROOT] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+25-May-2026 18:47:10.408 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:10.415 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:47:17.766 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:47:17.771 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:47:17.771 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:47:17.772 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:47:17.772 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:47:17.772 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:47:17.772 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:47:17.772 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:47:17.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:47:17.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:17.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:47:17.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:47:17.785 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:47:17.785 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:17.785 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:17.785 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:47:17.787 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:47:18.101 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:18.128 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [493] milliseconds
+25-May-2026 18:47:18.161 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:47:18.163 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:47:18.177 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:47:18.653 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:47:18.712 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [535] ms
+25-May-2026 18:47:18.713 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:47:18.716 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@cda0432]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:47:18.720 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [7] ms
+25-May-2026 18:47:18.720 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:47:18.760 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [40] ms
+25-May-2026 18:47:18.761 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:47:18.956 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [195] ms
+25-May-2026 18:47:18.956 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:47:18.970 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [13] ms
+25-May-2026 18:47:18.970 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:47:18.982 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [11] ms
+25-May-2026 18:47:18.985 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:18.998 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [868] milliseconds
+25-May-2026 18:47:25.567 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 18:47:25.567 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:25.571 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 18:47:25.611 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:25.622 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:47:35.850 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:35.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:35.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:47:35.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:47:35.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:47:35.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:47:35.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:47:35.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:47:35.863 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:47:36.143 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:36.157 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [490] milliseconds
+25-May-2026 18:47:36.182 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:47:36.183 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:47:36.192 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:47:36.203 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT] was found with a last modified time that did not match the associated WAR. It will be deleted.
+25-May-2026 18:47:36.649 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:47:36.699 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [507] ms
+25-May-2026 18:47:36.700 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:47:36.703 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@4e868ef5]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:47:36.705 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [5] ms
+25-May-2026 18:47:36.705 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:47:36.743 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [38] ms
+25-May-2026 18:47:36.743 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:47:36.895 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [152] ms
+25-May-2026 18:47:36.895 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:47:36.914 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [19] ms
+25-May-2026 18:47:36.914 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:47:36.932 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [18] ms
+25-May-2026 18:47:36.938 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:47:36.950 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [791] milliseconds
+25-May-2026 18:48:39.759 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+25-May-2026 18:48:39.762 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:48:39.774 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+25-May-2026 18:48:39.805 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:48:39.813 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:49:25.673 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.87
+25-May-2026 18:49:25.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2024 10:12:34 UTC
+25-May-2026 18:49:25.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.87.0
+25-May-2026 18:49:25.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-May-2026 18:49:25.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.6.114.1-microsoft-standard-WSL2
+25-May-2026 18:49:25.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-May-2026 18:49:25.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+25-May-2026 18:49:25.679 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu122.04.1
+25-May-2026 18:49:25.679 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+25-May-2026 18:49:25.679 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:49:25.679 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:49:25.682 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+25-May-2026 18:49:25.682 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/conf/logging.properties
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87
+25-May-2026 18:49:25.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/temp
+25-May-2026 18:49:25.684 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+25-May-2026 18:49:26.042 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:49:26.067 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [577] milliseconds
+25-May-2026 18:49:26.104 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-May-2026 18:49:26.104 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.87]
+25-May-2026 18:49:26.116 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war]
+25-May-2026 18:49:26.131 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT] was found with a last modified time that did not match the associated WAR. It will be deleted.
+25-May-2026 18:49:26.530 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-May-2026 18:49:26.571 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/ROOT.war] has finished in [456] ms
+25-May-2026 18:49:26.572 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+25-May-2026 18:49:26.574 SEVERE [main] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:686)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)
+		at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1175)
+		at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1888)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+		at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1086)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:470)
+		at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1584)
+		at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:312)
+		at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:114)
+		at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+		at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:345)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:893)
+		at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+		at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+		at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+		at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+		at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:925)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [org.apache.catalina.webresources.JarResourceSet@67a056f1]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:419)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:130)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:161)
+		at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:725)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4575)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4708)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+		... 35 more
+	Caused by: java.lang.IllegalArgumentException: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:141)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		... 42 more
+	Caused by: java.io.IOException: java.lang.reflect.InvocationTargetException
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
+		at org.apache.tomcat.util.compat.Jre19Compat.jarFileNewInstance(Jre19Compat.java:25)
+		at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:275)
+		at org.apache.catalina.webresources.AbstractSingleArchiveResourceSet.initInternal(AbstractSingleArchiveResourceSet.java:138)
+		... 43 more
+	Caused by: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+		at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:206)
+		... 46 more
+	Caused by: java.util.zip.ZipException: zip file is empty
+		at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1781)
+		at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1562)
+		at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1657)
+		at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1495)
+		at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1458)
+		at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:724)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:251)
+		at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:180)
+		at java.base/java.util.jar.JarFile.<init>(JarFile.java:345)
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+		... 49 more
+25-May-2026 18:49:26.575 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/bd2022] has finished in [4] ms
+25-May-2026 18:49:26.575 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager]
+25-May-2026 18:49:26.600 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/manager] has finished in [25] ms
+25-May-2026 18:49:26.600 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples]
+25-May-2026 18:49:26.725 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/examples] has finished in [125] ms
+25-May-2026 18:49:26.727 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs]
+25-May-2026 18:49:26.765 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/docs] has finished in [31] ms
+25-May-2026 18:49:26.765 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager]
+25-May-2026 18:49:26.790 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/mumuzinho/www/Trabalho-banco-de-dados-I/backend/apache-tomcat-9.0.87/webapps/host-manager] has finished in [25] ms
+25-May-2026 18:49:26.794 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-May-2026 18:49:26.807 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [738] milliseconds
+25-May-2026 18:49:33.036 SEVERE [http-nio-8080-exec-3] dao.PgUserDAO.all DAO
+	org.postgresql.util.PSQLException: ERROR: relation "j2ee.user" does not exist
+  Position: 23
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+		at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+		at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134)
+		at dao.PgUserDAO.all(PgUserDAO.java:234)
+		at controller.UserController.doGet(UserController.java:102)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:210)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:154)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:179)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:154)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:670)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1786)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
