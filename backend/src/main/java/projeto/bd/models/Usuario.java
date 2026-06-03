@@ -1,4 +1,4 @@
-package model;
+package projeto.bd.models;
 
 import java.sql.Timestamp;
 

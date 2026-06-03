@@ -1,7 +1,7 @@
-package dao;
+package projeto.bd.dao;
 
 import java.sql.SQLException;
-import model.Usuario;
+import projeto.bd.models.Usuario;
 
 public interface UsuarioDAO extends DAO<Usuario> {
     public void authenticate(Usuario usuario) throws SQLException, SecurityException;

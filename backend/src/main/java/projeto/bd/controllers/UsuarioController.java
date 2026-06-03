@@ -1,8 +1,8 @@
-package com.uel.bd2022.controller;
+package projeto.bd.controllers;
 
-import dao.DAOFactory;
-import dao.UsuarioDAO;
-import model.Usuario;
+import projeto.bd.dao.DAOFactory;
+import projeto.bd.dao.UsuarioDAO;
+import projeto.bd.models.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
