@@ -60,4 +60,19 @@ public class UsuarioController {
                                  .body("Erro ao deletar usuário: " + e.getMessage());
         }
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Usuario usuario) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            UsuarioDAO dao = daoFactory.getUsuarioDAO();
+            dao.login(usuario);
+            return ResponseEntity.ok("Login bem-sucedido!");
+        } catch (SecurityException se) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                                    .body("Credenciais inválidas.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                    .body("Erro ao processar login: " + e.getMessage());    
+        }
+    }
 }

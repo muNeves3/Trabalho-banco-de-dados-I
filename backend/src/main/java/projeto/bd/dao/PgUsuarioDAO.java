@@ -112,4 +112,21 @@ public class PgUsuarioDAO implements UsuarioDAO {
     @Override public Usuario read(Integer id) throws SQLException { return null; }
     @Override public void update(Usuario t) throws SQLException { }
     @Override public void delete(Integer id) throws SQLException { }
+
+    @Override
+    public void login(Usuario usuario) throws SQLException, SecurityException {
+        String LOGIN_QUERY = "SELECT cpf, nome FROM sistema.usuario WHERE email = ? AND senha_hash = md5(?);";
+        try (PreparedStatement statement = connection.prepareStatement(LOGIN_QUERY)) {
+            statement.setString(1, usuario.getEmail());
+            statement.setString(2, usuario.getSenhaHash());
+            try (ResultSet result = statement.executeQuery()) {
+                if (result.next()) {
+                    usuario.setCpf(result.getString("cpf"));
+                    usuario.setNome(result.getString("nome"));
+                } else {
+                    throw new SecurityException("Email ou senha incorretos.");
+                }
+            }
+        }
+    }
 }
