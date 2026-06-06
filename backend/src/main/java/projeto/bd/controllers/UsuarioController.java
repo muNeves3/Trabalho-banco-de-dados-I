@@ -1,8 +1,8 @@
-package com.uel.bd2022.controller;
+package projeto.bd.controllers;
 
-import dao.DAOFactory;
-import dao.UsuarioDAO;
-import model.Usuario;
+import projeto.bd.dao.DAOFactory;
+import projeto.bd.dao.UsuarioDAO;
+import projeto.bd.models.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -58,6 +58,21 @@ public class UsuarioController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                                  .body("Erro ao deletar usuário: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Usuario usuario) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            UsuarioDAO dao = daoFactory.getUsuarioDAO();
+            dao.login(usuario);
+            return ResponseEntity.ok("Login bem-sucedido!");
+        } catch (SecurityException se) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                                    .body("Credenciais inválidas.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                    .body("Erro ao processar login: " + e.getMessage());    
         }
     }
 }

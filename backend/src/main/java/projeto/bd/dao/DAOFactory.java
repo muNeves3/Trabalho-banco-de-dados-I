@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
+package projeto.bd.dao;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import jdbc.ConnectionFactory;
+import projeto.bd.jdbc.ConnectionFactory;
+import projeto.bd.dao.PgUsuarioDAO;
 
 /**
  *
@@ -81,10 +82,12 @@ public abstract class DAOFactory implements AutoCloseable {
         }
     }
 
-    public abstract UserDAO getUserDAO();
+    public abstract UsuarioDAO getUsuarioDAO();
     
-    public abstract GraficoDAO getGraficoDAO();
+    //public abstract GraficoDAO getGraficoDAO();
     
+    public abstract VersaoDatasetDAO getVersaoDatasetDAO();
+
     @Override
     public void close() throws SQLException {
         closeConnection();

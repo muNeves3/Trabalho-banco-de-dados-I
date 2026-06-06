@@ -1,5 +1,7 @@
-package dao;
+// dao/PgUsuarioDAO.java
+package projeto.bd.dao;
 
+import projeto.bd.jdbc.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,20 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Usuario;
+import projeto.bd.models.Usuario;
 
 public class PgUsuarioDAO implements UsuarioDAO {
 
     private final Connection connection;
 
     private static final String CREATE_QUERY =
-        "INSERT INTO sistema.usuario(cpf, nome, email, senha_hash, criado_em) VALUES(?, ?, ?, md5(?), ?);";
+        "INSERT INTO sistema.usuario(cpf, nome, email, senha_hash) VALUES(?, ?, ?, md5(?));"; 
     
     private static final String READ_QUERY =
         "SELECT cpf, nome, email, criado_em FROM sistema.usuario WHERE cpf = ?;";
 
     private static final String ALL_QUERY =
-        "SELECT cpf, nome, email FROM sistema.usuario ORDER BY nome;";
+        "SELECT cpf, nome, email, criado_em FROM sistema.usuario ORDER BY nome;";
 
     public PgUsuarioDAO(Connection connection) {
         this.connection = connection;
@@ -35,7 +37,6 @@ public class PgUsuarioDAO implements UsuarioDAO {
             statement.setString(2, usuario.getNome());
             statement.setString(3, usuario.getEmail());
             statement.setString(4, usuario.getSenhaHash());
-            statement.setTimestamp(5, new Timestamp(System.currentTimeMillis())); // Data atual
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PgUsuarioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
@@ -61,11 +62,6 @@ public class PgUsuarioDAO implements UsuarioDAO {
         }
         return user;
     }
-
-    // Métodos genéricos da interface DAO<T> que esperam Integer id devem ser ignorados ou adaptados
-    @Override public Usuario read(Integer id) throws SQLException { return null; }
-    @Override public void update(Usuario t) throws SQLException { /* Implemente o UPDATE similar ao template */ }
-    @Override public void delete(Integer id) throws SQLException { }
     
     @Override
     public void deleteByCpf(String cpf) throws SQLException {
@@ -88,6 +84,7 @@ public class PgUsuarioDAO implements UsuarioDAO {
                 u.setCpf(result.getString("cpf"));
                 u.setNome(result.getString("nome"));
                 u.setEmail(result.getString("email"));
+                u.setCriadoEm(result.getTimestamp("criado_em"));
                 list.add(u);
             }
         }
@@ -96,8 +93,30 @@ public class PgUsuarioDAO implements UsuarioDAO {
 
     @Override
     public void authenticate(Usuario usuario) throws SQLException, SecurityException {
+
         String AUTH_QUERY = "SELECT cpf, nome FROM sistema.usuario WHERE email = ? AND senha_hash = md5(?);";
         try (PreparedStatement statement = connection.prepareStatement(AUTH_QUERY)) {
+            statement.setString(1, usuario.getEmail());
+            statement.setString(2, usuario.getSenhaHash());
+            try (ResultSet result = statement.executeQuery()) {
+                if (result.next()) {
+                    usuario.setCpf(result.getString("cpf"));
+                    usuario.setNome(result.getString("nome"));
+                } else {
+                    throw new SecurityException("Email ou senha incorretos.");
+                }
+            }
+        }
+    }
+
+    @Override public Usuario read(Integer id) throws SQLException { return null; }
+    @Override public void update(Usuario t) throws SQLException { }
+    @Override public void delete(Integer id) throws SQLException { }
+
+    @Override
+    public void login(Usuario usuario) throws SQLException, SecurityException {
+        String LOGIN_QUERY = "SELECT cpf, nome FROM sistema.usuario WHERE email = ? AND senha_hash = md5(?);";
+        try (PreparedStatement statement = connection.prepareStatement(LOGIN_QUERY)) {
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getSenhaHash());
             try (ResultSet result = statement.executeQuery()) {
