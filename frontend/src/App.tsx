@@ -1,200 +1,60 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-
-type Screen = 'login' | 'register' | 'home';
+import Cadastro from './Cadastro';
+import Home from './Home';
+import Login from './Login';
+import Perfil from './Perfil';
+import { buscarUsuarioPorCpf, cadastrarUsuario, loginUsuario } from './api/api';
 
 type UserSession = {
   cpf: string;
   email: string;
 };
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-
 function App() {
-  const [screen, setScreen] = useState<Screen>('login');
-  const [loginCpf, setLoginCpf] = useState('');
-  const [loginSenha, setLoginSenha] = useState('');
-  const [registerCpf, setRegisterCpf] = useState('');
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerSenha, setRegisterSenha] = useState('');
   const [user, setUser] = useState<UserSession | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setErrorMessage('');
-    setLoading(true);
-
-    try {
-      const userResponse = await fetch(`${API_BASE_URL}/api/usuarios/${loginCpf}`);
-      if (!userResponse.ok) {
-        throw new Error('CPF não encontrado.');
-      }
-
-      const userData = await userResponse.json();
-      const loginResponse = await fetch(`${API_BASE_URL}/api/usuarios/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: userData.email, senhaHash: loginSenha })
-      });
-
-      if (!loginResponse.ok) {
-        const backendMessage = await loginResponse.text();
-        throw new Error(backendMessage || 'Falha no login.');
-      }
-
-      setUser({ cpf: loginCpf, email: userData.email });
-      setScreen('home');
-      setLoginSenha('');
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Erro ao fazer login.';
-      setErrorMessage(message);
-    } finally {
-      setLoading(false);
-    }
+  const handleLogin = async (cpf: string, senha: string) => {
+    const usuario = await buscarUsuarioPorCpf(cpf);
+    await loginUsuario({ email: usuario.email, senhaHash: senha });
+    setUser({ cpf, email: usuario.email });
   };
 
-  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setErrorMessage('');
-    setLoading(true);
+  const handleCadastro = async (cpf: string, email: string, senha: string) => {
+    await cadastrarUsuario({ cpf, email, senhaHash: senha, nome: cpf });
+    setUser({ cpf, email });
+  };
 
-    try {
-      const registerResponse = await fetch(`${API_BASE_URL}/api/usuarios`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          cpf: registerCpf,
-          email: registerEmail,
-          senhaHash: registerSenha,
-          nome: registerCpf
-        })
-      });
-
-      if (!registerResponse.ok) {
-        const backendMessage = await registerResponse.text();
-        throw new Error(backendMessage || 'Falha no cadastro.');
-      }
-
-      setUser({ cpf: registerCpf, email: registerEmail });
-      setScreen('home');
-      setRegisterSenha('');
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Erro ao cadastrar.';
-      setErrorMessage(message);
-    } finally {
-      setLoading(false);
-    }
+  const handleUpdateUser = (email: string) => {
+    setUser((prev) => prev ? { ...prev, email } : null);
   };
 
   const handleLogout = () => {
     setUser(null);
-    setLoginCpf('');
-    setLoginSenha('');
-    setRegisterCpf('');
-    setRegisterEmail('');
-    setRegisterSenha('');
-    setErrorMessage('');
-    setScreen('login');
   };
 
   return (
-    <div className="container">
-      {screen === 'login' && (
-        <div className="card">
-          <h1>Login</h1>
-          <form onSubmit={handleLogin} className="form">
-            <label htmlFor="login-cpf">CPF</label>
-            <input
-              id="login-cpf"
-              type="text"
-              value={loginCpf}
-              onChange={(e) => setLoginCpf(e.target.value)}
-              required
-            />
-
-            <label htmlFor="login-senha">Senha</label>
-            <input
-              id="login-senha"
-              type="password"
-              value={loginSenha}
-              onChange={(e) => setLoginSenha(e.target.value)}
-              required
-            />
-
-            <button type="submit" disabled={loading}>
-              {loading ? 'Entrando...' : 'Entrar'}
-            </button>
-          </form>
-
-          <button className="link-button" onClick={() => setScreen('register')}>
-            Não tem conta? Cadastre-se
-          </button>
-
-          {errorMessage && <p className="error">{errorMessage}</p>}
-        </div>
-      )}
-
-      {screen === 'register' && (
-        <div className="card">
-          <h1>Cadastro</h1>
-          <form onSubmit={handleRegister} className="form">
-            <label htmlFor="register-cpf">CPF</label>
-            <input
-              id="register-cpf"
-              type="text"
-              value={registerCpf}
-              onChange={(e) => setRegisterCpf(e.target.value)}
-              required
-            />
-
-            <label htmlFor="register-email">Email</label>
-            <input
-              id="register-email"
-              type="email"
-              value={registerEmail}
-              onChange={(e) => setRegisterEmail(e.target.value)}
-              required
-            />
-
-            <label htmlFor="register-senha">Senha</label>
-            <input
-              id="register-senha"
-              type="password"
-              value={registerSenha}
-              onChange={(e) => setRegisterSenha(e.target.value)}
-              required
-            />
-
-            <button type="submit" disabled={loading}>
-              {loading ? 'Cadastrando...' : 'Cadastrar'}
-            </button>
-          </form>
-
-          <button className="link-button" onClick={() => setScreen('login')}>
-            Já tem conta? Fazer login
-          </button>
-
-          {errorMessage && <p className="error">{errorMessage}</p>}
-        </div>
-      )}
-
-      {screen === 'home' && (
-        <div className="card">
-          <h1>Tela Inicial</h1>
-          <p>Bem-vindo!</p>
-          {user && (
-            <p>
-              CPF: {user.cpf}
-              <br />
-              Email: {user.email}
-            </p>
-          )}
-          <button onClick={handleLogout}>Sair</button>
-        </div>
-      )}
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route
+        path="/login"
+        element={user ? <Navigate to="/home" replace /> : <Login onLogin={handleLogin} />}
+      />
+      <Route
+        path="/cadastro"
+        element={user ? <Navigate to="/home" replace /> : <Cadastro onCadastro={handleCadastro} />}
+      />
+      <Route
+        path="/home"
+        element={user ? <Home user={user} onLogout={handleLogout} /> : <Navigate to="/login" replace />}
+      />
+      <Route
+        path="/perfil"
+        element={user ? <Perfil user={user} onUpdateUser={handleUpdateUser} onLogout={handleLogout} /> : <Navigate to="/login" replace />}
+      />
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
   );
 }
 
