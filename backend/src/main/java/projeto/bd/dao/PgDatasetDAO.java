@@ -50,7 +50,12 @@ public class PgDatasetDAO implements DatasetDAO {
             statement.setString(2, dataset.getDescricao());
             statement.setString(3, dataset.getFontes());
             statement.setString(4, dataset.getCriadorCpf());
-            statement.setTimestamp(5, dataset.getCriadoEm());
+
+            if (dataset.getCriadoEm() != null) {
+                statement.setTimestamp(5, dataset.getCriadoEm());
+            } else {
+                statement.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+            }
 
             statement.executeUpdate();
         } catch (SQLException ex) {
