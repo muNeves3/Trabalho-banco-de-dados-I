@@ -5,7 +5,6 @@
 package projeto.bd.dao;
 
 import java.sql.Connection;
-import projeto.bd.dao.PgUsuarioDAO;
 /**
  *
  * @author dskaster
@@ -24,5 +23,15 @@ public class PgDAOFactory extends DAOFactory {
     @Override
     public VersaoDatasetDAO getVersaoDatasetDAO() {
         return new PgVersaoDatasetDAO(this.connection);
+    }
+
+    @Override
+    public FeatureDAO getFeatureDAO() {
+        return new PgFeatureDAO(this.connection);
+    }
+
+    @Override
+    public DatasetDAO getDatasetDAO() {
+        return new PgDatasetDAO(this.connection);
     }
 }

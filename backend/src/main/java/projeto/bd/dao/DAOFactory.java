@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import projeto.bd.jdbc.ConnectionFactory;
-import projeto.bd.dao.PgUsuarioDAO;
 
 /**
  *
@@ -83,10 +82,13 @@ public abstract class DAOFactory implements AutoCloseable {
     }
 
     public abstract UsuarioDAO getUsuarioDAO();
-    
-    //public abstract GraficoDAO getGraficoDAO();
-    
+        
     public abstract VersaoDatasetDAO getVersaoDatasetDAO();
+
+    public abstract FeatureDAO getFeatureDAO();
+
+    public abstract DatasetDAO getDatasetDAO();
+
 
     @Override
     public void close() throws SQLException {
