@@ -120,3 +120,43 @@ export async function authenticateUsuario(payload: LoginPayload): Promise<void> 
     await parseError(response, 'Falha ao autenticar.');
   }
 }
+
+// tipos e funções para DATASETS
+
+export type Dataset = {
+  id: number;
+  nome: string;
+  descricao: string;
+  fontes: string;
+  criadorCpf: string;
+  criadoEm: string;
+};
+
+export type DatasetPayload = {
+  nome: string;
+  descricao: string;
+  fontes: string;
+  criadorCpf: string;
+};
+
+export async function cadastrarDataset(payload: DatasetPayload): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/api/datasets`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    await parseError(response, 'Falha ao cadastrar dataset.');
+  }
+}
+
+export async function listarDatasets(): Promise<Dataset[]> {
+  const response = await fetch(`${API_BASE_URL}/api/datasets`);
+
+  if (!response.ok) {
+    throw new Error('Erro ao buscar datasets.');
+  }
+
+  return response.json();
+}
