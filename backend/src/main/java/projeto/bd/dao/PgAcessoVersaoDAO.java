@@ -49,7 +49,6 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
         }
     }
 
-    @Override
     public AcessoVersao read(String usuarioCpf, int datasetId, int versaoDatasetNumVersao) throws SQLException {
         try(PreparedStatement statement = connection.prepareStatement(READ_QUERY)) {
 
@@ -77,7 +76,7 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
     @Override
     public void update(AcessoVersao acessoVersao) throws SQLException {
         try(PreparedStatement statement = connection.prepareStatement(UPDATE_QUERY)) {
-            statement.setInt(1, acessoVersao.getUsuarioCpf());
+            statement.setString(1, acessoVersao.getUsuarioCpf());
             statement.setInt(2, acessoVersao.getDatasetId());
             statement.setInt(3, acessoVersao.getVersaoDatasetNumVersao());
 
@@ -96,7 +95,7 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
             
             while (rs.next()) {
                 AcessoVersao acessoVersao = new AcessoVersao();
-                acessoVersao.setUsuarioCpf(rs.getInt("criador_cpf"));
+                acessoVersao.setUsuarioCpf(rs.getString("criador_cpf"));
                 acessoVersao.setDatasetId(rs.getInt("dataset_id"));
                 acessoVersao.setVersaoDatasetNumVersao(rs.getInt("numero_versao"));
                 lista.add(acessoVersao);

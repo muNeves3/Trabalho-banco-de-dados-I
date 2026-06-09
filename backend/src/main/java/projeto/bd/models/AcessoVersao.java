@@ -1,5 +1,7 @@
 package projeto.bd.models;
 
+import java.util.Date;
+
 public class AcessoVersao {
     private int VersaoDatasetNumVersao;
     private String usuarioCpf;
@@ -11,6 +13,9 @@ public class AcessoVersao {
         this.usuarioCpf = usuarioCpf;
         this.datasetId = datasetId;
         this.acessadoEm = acessadoEm;
+    }
+
+    public AcessoVersao() {
     }
 
     public int getVersaoDatasetNumVersao() {
