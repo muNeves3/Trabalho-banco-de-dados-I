@@ -39,10 +39,12 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
         try (PreparedStatement statement = connection.prepareStatement(CREATE_QUERY)) {
             statement.setInt(1, versao.getDatasetId());
             
+            // regra de negócio: um dataset começa na versão 1, cada versão nova baseada nele ou em outra versão é incrementada em 1.
+            // então pode ter vários datasets com versão 1, mas só pode ter um dataset com versão 2 baseado na versão 1 criado por um usuario x, e assim por diante.
             if (versao.getVersaoBaseNumero() != null) {
                 statement.setInt(2, versao.getVersaoBaseNumero());
             } else {
-                statement.setNull(2, java.sql.Types.INTEGER);
+                statement.setNull(2, 1);
             }
             
             statement.setInt(3, versao.getNumeroVersao());
