@@ -1,8 +1,5 @@
 package projeto.bd.controllers;
 
-
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -18,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import projeto.bd.dao.DAOFactory;
 import projeto.bd.dao.DatasetDAO;
+import projeto.bd.dtos.DatasetRequestDTO;
 import projeto.bd.models.Dataset;
 
 
@@ -38,11 +36,18 @@ public class DatasetController {
     }
 
     @PostMapping
-    public ResponseEntity<String> criarDataset(@RequestBody Dataset dataset) {
+    public ResponseEntity<String> criarDataset(@RequestBody DatasetRequestDTO dto) {
         try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            Dataset novoDataset = new Dataset();
+            novoDataset.setNome(dto.getNome());
+            novoDataset.setDescricao(dto.getDescricao());
+            novoDataset.setFontes(dto.getFontes());
+            novoDataset.setCriadorCpf(dto.getCriadorCpf());
+
+
             DatasetDAO dao = daoFactory.getDatasetDAO();
-            dataset.setCriadoEm(Timestamp.valueOf(LocalDateTime.now()));
-            dao.create(dataset);
+            dao.create(novoDataset);
+
             return ResponseEntity.status(HttpStatus.CREATED).body("Dataset criado com sucesso!");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)

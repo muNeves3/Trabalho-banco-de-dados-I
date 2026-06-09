@@ -35,6 +35,7 @@ function Home({ user, onLogout }: HomeProps) {
         >
           👤
         </div>
+        
         <h1>Tela Inicial</h1>
         <p>Bem-vindo!</p>
         <p>
@@ -42,7 +43,16 @@ function Home({ user, onLogout }: HomeProps) {
           <br />
           Email: {user.email}
         </p>
-        <button onClick={handleLogout}>Sair</button>
+        
+        <div className="form" style={{ marginTop: '24px' }}>
+          <button onClick={() => navigate('/datasets/novo')}>
+            Cadastrar Novo Dataset
+          </button>
+
+          <button className="link-button" onClick={handleLogout}>
+            Sair da Conta
+          </button>
+        </div>
       </div>
     </div>
   );
