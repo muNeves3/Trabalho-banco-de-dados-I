@@ -7,18 +7,16 @@ public class AcessoVersao {
     private String usuarioCpf;
     private int datasetId;
     private Date acessadoEm;
-
-    public AcessoVersao(int versaoDatasetNumVersao, String usuarioCpf, int datasetId, Date acessadoEm) {
-        this.VersaoDatasetNumVersao = versaoDatasetNumVersao;
-        this.usuarioCpf = usuarioCpf;
-        this.datasetId = datasetId;
-        this.acessadoEm = acessadoEm;
-    }
+    private String tipoAcesso;
 
     public AcessoVersao() {
     }
 
     public int getVersaoDatasetNumVersao() {
+        return VersaoDatasetNumVersao;
+    }
+
+    public int getNumeroVersao() {
         return VersaoDatasetNumVersao;
     }
 
@@ -38,11 +36,27 @@ public class AcessoVersao {
         this.VersaoDatasetNumVersao = versaoDatasetNumVersao;
     }
 
+    public void setNumeroVersao(int numeroVersao) {
+        this.VersaoDatasetNumVersao = numeroVersao;
+    }
+
     public void setUsuarioCpf(String usuarioCpf) {
         this.usuarioCpf = usuarioCpf;
     }
 
     public void setDatasetId(int datasetId) {
         this.datasetId = datasetId;
+    }
+
+    public void setAcessadoEm(Date acessadoEm) {
+        this.acessadoEm = acessadoEm;
+    }
+
+    public String getTipoAcesso() {
+        return tipoAcesso;
+    }
+
+    public void setTipoAcesso(String tipoAcesso) {
+        this.tipoAcesso = tipoAcesso;
     }
 }

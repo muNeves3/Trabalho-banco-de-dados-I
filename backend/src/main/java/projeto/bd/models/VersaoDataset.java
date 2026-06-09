@@ -8,7 +8,7 @@ public class VersaoDataset {
     private Integer versaoBaseNumero; 
     private String criadorCpf; 
     private String descModificacoes;
-    private String caminhoArquivo;
+    private byte[] arquivo;
     private Timestamp criadoEm;
 
     public Integer getDatasetId() { return datasetId; }
@@ -21,8 +21,8 @@ public class VersaoDataset {
     public void setCriadorCpf(String criadorCpf) { this.criadorCpf = criadorCpf; }
     public String getDescModificacoes() { return descModificacoes; }
     public void setDescModificacoes(String descModificacoes) { this.descModificacoes = descModificacoes; }
-    public String getCaminhoArquivo() { return caminhoArquivo; }
-    public void setCaminhoArquivo(String caminhoArquivo) { this.caminhoArquivo = caminhoArquivo; }
+    public byte[] getArquivo() { return arquivo; }
+    public void setArquivo(byte[] arquivo) { this.arquivo = arquivo; }
     public Timestamp getCriadoEm() { return criadoEm; }
     public void setCriadoEm(Timestamp criadoEm) { this.criadoEm = criadoEm; }
 }

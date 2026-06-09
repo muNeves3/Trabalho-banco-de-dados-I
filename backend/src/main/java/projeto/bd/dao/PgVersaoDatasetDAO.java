@@ -16,18 +16,18 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
     private final Connection connection;
 
     private static final String CREATE_QUERY =
-        "INSERT INTO sistema.versao_dataset(dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, caminho_arquivo) " +
+        "INSERT INTO sistema.versao_dataset(dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo) " +
         "VALUES(?, ?, ?, ?, ?, ?);"; 
         
     private static final String LIST_BY_DATASET_QUERY =
-        "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, caminho_arquivo, criado_em " +
+        "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em " +
         "FROM sistema.versao_dataset WHERE dataset_id = ? ORDER BY numero_versao ASC;";
 
-    private static final String ALL_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, caminho_arquivo, criado_em FROM sistema.versao_dataset ORDER BY dataset_id, numero_versao;";
+    private static final String ALL_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset ORDER BY dataset_id, numero_versao;";
 
-    private static final String READ_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, caminho_arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
+    private static final String READ_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
 
-    private static final String UPDATE_QUERY = "UPDATE sistema.versao_dataset SET versao_base_numero = ?, criador_cpf = ?, desc_modificacoes = ?, caminho_arquivo = ? WHERE dataset_id = ? AND numero_versao = ?;";
+    private static final String UPDATE_QUERY = "UPDATE sistema.versao_dataset SET versao_base_numero = ?, criador_cpf = ?, desc_modificacoes = ?, arquivo = ? WHERE dataset_id = ? AND numero_versao = ?;";
 
     private static final String DELETE_QUERY = "DELETE FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
 
@@ -50,7 +50,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
             statement.setInt(3, versao.getNumeroVersao());
             statement.setString(4, versao.getCriadorCpf());
             statement.setString(5, versao.getDescModificacoes());
-            statement.setString(6, versao.getCaminhoArquivo());
+            statement.setBytes(6, versao.getArquivo());
             
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -77,7 +77,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
                 v.setNumeroVersao(result.getInt("numero_versao"));
                 v.setCriadorCpf(result.getString("criador_cpf"));
                 v.setDescModificacoes(result.getString("desc_modificacoes"));
-                v.setCaminhoArquivo(result.getString("caminho_arquivo"));
+                v.setArquivo(result.getBytes("arquivo"));
                 v.setCriadoEm(result.getTimestamp("criado_em"));
                 
                 versoes.add(v);
@@ -104,7 +104,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
                     v.setNumeroVersao(result.getInt("numero_versao"));
                     v.setCriadorCpf(result.getString("criador_cpf"));
                     v.setDescModificacoes(result.getString("desc_modificacoes"));
-                    v.setCaminhoArquivo(result.getString("caminho_arquivo"));
+                    v.setArquivo(result.getBytes("arquivo"));
                     v.setCriadoEm(result.getTimestamp("criado_em"));
                     
                     versoes.add(v);
@@ -131,7 +131,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
                     v.setNumeroVersao(result.getInt("numero_versao"));
                     v.setCriadorCpf(result.getString("criador_cpf"));
                     v.setDescModificacoes(result.getString("desc_modificacoes"));
-                    v.setCaminhoArquivo(result.getString("caminho_arquivo"));
+                    v.setArquivo(result.getBytes("arquivo"));
                     v.setCriadoEm(result.getTimestamp("criado_em"));
                     
                     return v;
@@ -153,7 +153,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
             
             statement.setString(2, t.getCriadorCpf());
             statement.setString(3, t.getDescModificacoes());
-            statement.setString(4, t.getCaminhoArquivo());
+            statement.setBytes(4, t.getArquivo());
             statement.setInt(5, t.getDatasetId());
             statement.setInt(6, t.getNumeroVersao());
             
