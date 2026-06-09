@@ -15,21 +15,32 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
     private final Connection connection;
 
     private static final String CREATE_QUERY =
-        "INSERT INTO sistema.acesso_versao(criador_cpf, dataset_id, numero_versao) " +
-        "VALUES(?, ?, ?);";
+        "INSERT INTO sistema.acesso_versao(usuario_cpf, dataset_id, numero_versao, tipo_acesso) " +
+        "VALUES(?, ?, ?, ?);";
 
     private static final String READ_QUERY = 
-        "SELECT criador_cpf, dataset_id, numero_versao, acesso_em " +
-        "FROM sistema.acesso_versao WHERE criador_cpf = ? AND dataset_id = ? AND numero_versao = ?;";
+        "SELECT usuario_cpf, dataset_id, numero_versao, tipo_acesso, acessado_em " +
+        "FROM sistema.acesso_versao WHERE usuario_cpf = ? AND dataset_id = ? AND numero_versao = ? " +
+        "ORDER BY acessado_em DESC LIMIT 1;";
     
     private static final String ALL_QUERY =
-        "SELECT criador_cpf, dataset_id, numero_versao, acesso_em FROM sistema.acesso_versao ORDER BY acesso_em DESC;";
+        "SELECT usuario_cpf, dataset_id, numero_versao, tipo_acesso, acessado_em " +
+        "FROM sistema.acesso_versao ORDER BY acessado_em DESC;";
+
+    private static final String LIST_BY_USUARIO_QUERY =
+        "SELECT usuario_cpf, dataset_id, numero_versao, tipo_acesso, acessado_em " +
+        "FROM sistema.acesso_versao WHERE usuario_cpf = ? ORDER BY acessado_em DESC;";
+
+    private static final String LIST_BY_DATASET_QUERY =
+        "SELECT usuario_cpf, dataset_id, numero_versao, tipo_acesso, acessado_em " +
+        "FROM sistema.acesso_versao WHERE dataset_id = ? ORDER BY acessado_em DESC;";
 
     private static final String UPDATE_QUERY = 
-        "UPDATE sistema.acesso_versao SET acesso_em = CURRENT_TIMESTAMP WHERE criador_cpf = ? AND dataset_id = ? AND numero_versao = ?;";
+        "UPDATE sistema.acesso_versao SET tipo_acesso = ? " +
+        "WHERE usuario_cpf = ? AND dataset_id = ? AND numero_versao = ? AND acessado_em = ?;";
     
     private static final String DELETE_QUERY = 
-        "DELETE FROM sistema.acesso_versao WHERE criador_cpf = ? AND dataset_id = ? AND numero_versao = ?;";
+        "DELETE FROM sistema.acesso_versao WHERE usuario_cpf = ? AND dataset_id = ? AND numero_versao = ? AND acessado_em = ?;";
 
     public PgAcessoVersaoDAO(Connection connection) {
         this.connection = connection;
@@ -41,6 +52,7 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
             statement.setString(1, acessoVersao.getUsuarioCpf());
             statement.setInt(2, acessoVersao.getDatasetId());
             statement.setInt(3, acessoVersao.getVersaoDatasetNumVersao());
+            statement.setString(4, acessoVersao.getTipoAcesso());
 
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -59,10 +71,11 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
             try (ResultSet rs = statement.executeQuery()) {
                 if (rs.next()) {
                     AcessoVersao acessoVersao = new AcessoVersao();
-                    acessoVersao.setUsuarioCpf(rs.getString("criador_cpf"));
+                    acessoVersao.setUsuarioCpf(rs.getString("usuario_cpf"));
                     acessoVersao.setDatasetId(rs.getInt("dataset_id"));
                     acessoVersao.setVersaoDatasetNumVersao(rs.getInt("numero_versao"));
-
+                    acessoVersao.setTipoAcesso(rs.getString("tipo_acesso"));
+                    acessoVersao.setAcessadoEm(rs.getTimestamp("acessado_em"));
                     return acessoVersao;
                 }
             }
@@ -75,10 +88,16 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
 
     @Override
     public void update(AcessoVersao acessoVersao) throws SQLException {
+        if (acessoVersao.getAcessadoEm() == null) {
+            throw new SQLException("Data de acesso obrigatória para atualizar o registro.");
+        }
+
         try(PreparedStatement statement = connection.prepareStatement(UPDATE_QUERY)) {
-            statement.setString(1, acessoVersao.getUsuarioCpf());
-            statement.setInt(2, acessoVersao.getDatasetId());
-            statement.setInt(3, acessoVersao.getVersaoDatasetNumVersao());
+            statement.setString(1, acessoVersao.getTipoAcesso());
+            statement.setString(2, acessoVersao.getUsuarioCpf());
+            statement.setInt(3, acessoVersao.getDatasetId());
+            statement.setInt(4, acessoVersao.getVersaoDatasetNumVersao());
+            statement.setTimestamp(5, new java.sql.Timestamp(acessoVersao.getAcessadoEm().getTime()));
 
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -95,9 +114,11 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
             
             while (rs.next()) {
                 AcessoVersao acessoVersao = new AcessoVersao();
-                acessoVersao.setUsuarioCpf(rs.getString("criador_cpf"));
+                acessoVersao.setUsuarioCpf(rs.getString("usuario_cpf"));
                 acessoVersao.setDatasetId(rs.getInt("dataset_id"));
                 acessoVersao.setVersaoDatasetNumVersao(rs.getInt("numero_versao"));
+                acessoVersao.setTipoAcesso(rs.getString("tipo_acesso"));
+                acessoVersao.setAcessadoEm(rs.getTimestamp("acessado_em"));
                 lista.add(acessoVersao);
             }
         } catch (SQLException ex) {
@@ -108,16 +129,53 @@ public class PgAcessoVersaoDAO implements AcessoVersaoDAO {
     }
 
     public void delete(String usuarioCpf, int datasetId, int versaoDatasetNumVersao) throws SQLException {
-        try(PreparedStatement statement = connection.prepareStatement(DELETE_QUERY)) {
-            statement.setInt(1, Integer.parseInt(usuarioCpf));
-            statement.setInt(2, datasetId);
-            statement.setInt(3, versaoDatasetNumVersao);
+        throw new UnsupportedOperationException("Método inválido sem a data de acesso.");
+    }
 
-            statement.executeUpdate();
+    @Override
+    public List<AcessoVersao> listarPorUsuario(String cpf) throws SQLException {
+        List<AcessoVersao> lista = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(LIST_BY_USUARIO_QUERY)) {
+            statement.setString(1, cpf);
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    AcessoVersao acessoVersao = new AcessoVersao();
+                    acessoVersao.setUsuarioCpf(rs.getString("usuario_cpf"));
+                    acessoVersao.setDatasetId(rs.getInt("dataset_id"));
+                    acessoVersao.setVersaoDatasetNumVersao(rs.getInt("numero_versao"));
+                    acessoVersao.setTipoAcesso(rs.getString("tipo_acesso"));
+                    acessoVersao.setAcessadoEm(rs.getTimestamp("acessado_em"));
+                    lista.add(acessoVersao);
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(PgVersaoDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
-            throw new SQLException("Erro ao deletar acesso de versão");
+            throw new SQLException("Erro ao listar acessos por usuário");
         }
+        return lista;
+    }
+
+    @Override
+    public List<AcessoVersao> listarPorDataset(Integer datasetId) throws SQLException {
+        List<AcessoVersao> lista = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(LIST_BY_DATASET_QUERY)) {
+            statement.setInt(1, datasetId);
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    AcessoVersao acessoVersao = new AcessoVersao();
+                    acessoVersao.setUsuarioCpf(rs.getString("usuario_cpf"));
+                    acessoVersao.setDatasetId(rs.getInt("dataset_id"));
+                    acessoVersao.setVersaoDatasetNumVersao(rs.getInt("numero_versao"));
+                    acessoVersao.setTipoAcesso(rs.getString("tipo_acesso"));
+                    acessoVersao.setAcessadoEm(rs.getTimestamp("acessado_em"));
+                    lista.add(acessoVersao);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgVersaoDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao listar acessos por dataset");
+        }
+        return lista;
     }
 
     @Override
