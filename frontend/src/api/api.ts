@@ -160,3 +160,51 @@ export async function listarDatasets(): Promise<Dataset[]> {
 
   return response.json();
 }
+
+
+// tipos e funções para ACESSO VERSAO
+
+export type AcessoVersaoRequest = {
+  usuarioCpf: string;
+  datasetId: number;
+  numeroVersao: number;
+  tipoAcesso: string; 
+};
+
+export type AcessoVersaoResponse = {
+  usuarioCpf: string;
+  datasetId: number;
+  numeroVersao: number;
+  tipoAcesso: string;
+  acessadoEm: string;
+};
+
+export async function registrarAcesso(payload: AcessoVersaoRequest): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/api/acessos-versao`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    await parseError(response, 'Falha ao registrar acesso.');
+  }
+}
+
+export async function listarAcessos(): Promise<AcessoVersaoResponse[]> {
+  const response = await fetch(`${API_BASE_URL}/api/acessos-versao`);
+  if (!response.ok) throw new Error('Erro ao buscar todos os acessos.');
+  return response.json();
+}
+
+export async function listarAcessosPorUsuario(cpf: string): Promise<AcessoVersaoResponse[]> {
+  const response = await fetch(`${API_BASE_URL}/api/acessos-versao/usuario/${cpf}`);
+  if (!response.ok) throw new Error('Erro ao buscar acessos do usuário.');
+  return response.json();
+}
+
+export async function listarAcessosPorDataset(datasetId: number): Promise<AcessoVersaoResponse[]> {
+  const response = await fetch(`${API_BASE_URL}/api/acessos-versao/dataset/${datasetId}`);
+  if (!response.ok) throw new Error('Erro ao buscar acessos do dataset.');
+  return response.json();
+}
