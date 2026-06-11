@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import projeto.bd.dtos.DatasetResumoDTO;
 import projeto.bd.models.Dataset;
 
 public class PgDatasetDAO implements DatasetDAO {
@@ -37,6 +39,13 @@ public class PgDatasetDAO implements DatasetDAO {
             "SELECT id, nome, descricao, fontes, criador_cpf, criado_em " +
             "FROM sistema.dataset " +
             "ORDER BY id;";
+
+    private static final String ALL_RESUMO_QUERY =
+            "SELECT d.id, d.nome, d.criador_cpf, d.criado_em, COUNT(v.numero_versao) AS quantidade_versoes " + 
+            "FROM sistema.dataset d " +
+            "LEFT JOIN sistema.versao_dataset v ON d.id = v.dataset_id " +
+            "GROUP BY d.id, d.nome, d.criador_cpf, d.criado_em " +
+            "ORDER BY d.id";
 
     // Construtor
     public PgDatasetDAO(Connection connection) {
@@ -141,6 +150,29 @@ public class PgDatasetDAO implements DatasetDAO {
         } catch (SQLException ex) {
             Logger.getLogger(PgDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
             throw new SQLException("Erro ao listar datasets.");
+        }
+        return datasetList;
+    }
+
+    @Override
+    public List<DatasetResumoDTO> allResumo () throws SQLException {    
+        List<DatasetResumoDTO> datasetList = new ArrayList<>();
+
+        try (PreparedStatement statement = connection.prepareStatement(ALL_RESUMO_QUERY);
+             ResultSet result = statement.executeQuery()) {
+            while (result.next()) {
+                DatasetResumoDTO dataset = new DatasetResumoDTO();
+                dataset.setId(result.getInt("id"));
+                dataset.setNome(result.getString("nome"));
+                dataset.setCriadorCpf(result.getString("criador_cpf"));
+                dataset.setCriadoEm(result.getTimestamp("criado_em"));
+                dataset.setQuantidadeVersoes(result.getInt("quantidade_versoes"));
+
+                datasetList.add(dataset);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao listar resumos de datasets.");
         }
         return datasetList;
     }

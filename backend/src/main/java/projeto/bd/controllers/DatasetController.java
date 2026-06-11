@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import projeto.bd.dao.DAOFactory;
 import projeto.bd.dao.DatasetDAO;
 import projeto.bd.dtos.DatasetRequestDTO;
+import projeto.bd.dtos.DatasetResumoDTO;
 import projeto.bd.models.Dataset;
 
 
@@ -24,10 +25,10 @@ import projeto.bd.models.Dataset;
 public class DatasetController {
 
     @GetMapping
-    public ResponseEntity<?> listarDataset() {
+    public ResponseEntity<?> listarDatasetResumo() {
         try (DAOFactory daoFactory = DAOFactory.getInstance()) {
             DatasetDAO dao = daoFactory.getDatasetDAO();
-            List<Dataset> dataset = dao.all();
+            List<DatasetResumoDTO> dataset = dao.allResumo();
             return ResponseEntity.ok(dataset);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -94,4 +95,5 @@ public class DatasetController {
         }
 
     }
+
 }
