@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Cadastro from './Cadastro';
-import Home from './Home';
-import Login from './Login';
-import Perfil from './Perfil';
-import CadastroDataset from './CadastroDataset';
+import Cadastro from './components/Cadastro/Cadastro';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Perfil from './components/Perfil/Perfil';
+import CadastroDataset from './components/CadastroDataset/CadastroDataset';
 import { buscarUsuarioPorCpf, cadastrarUsuario, loginUsuario } from './api/api';
 
 type UserSession = {
