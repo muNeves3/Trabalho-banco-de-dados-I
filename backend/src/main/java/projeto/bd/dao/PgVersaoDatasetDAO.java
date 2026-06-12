@@ -115,9 +115,11 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
     }
 
     @Override
-    public VersaoDataset read(Integer id) throws SQLException {
+    public VersaoDataset read(Integer id, Integer numeroVersao) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(READ_QUERY)) {
             statement.setInt(1, id);
+            statement.setInt(2, numeroVersao);
+
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next()) {
                     VersaoDataset v = new VersaoDataset();
@@ -136,7 +138,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
                     
                     return v;
                 } else {
-                    return null; 
+                    throw new SQLException("Versão não encontrada.");
                 }
             }
         }
@@ -162,10 +164,23 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
     }
 
     @Override
-    public void delete(Integer id) throws SQLException {
+    public void delete(Integer id, Integer numeroVersao) throws SQLException {
        try (PreparedStatement statement = connection.prepareStatement(DELETE_QUERY)) {
             statement.setInt(1, id);
-            statement.executeUpdate();
+            statement.setInt(2, numeroVersao);
+            if (statement.executeUpdate() < 1) {
+                throw new SQLException("Versão não encontrada para exclusão.");
+            }
         }
     }
+
+    @Override
+    public VersaoDataset read(Integer id) throws SQLException {
+        throw new UnsupportedOperationException("Chave composta. Utilize read(datasetId, numeroVersao).");
+    }
+
+    @Override
+    public void delete(Integer id) throws SQLException {
+        throw new UnsupportedOperationException("Chave composta. Utilize delete(datasetId, numeroVersao).");
+    }    
 }
