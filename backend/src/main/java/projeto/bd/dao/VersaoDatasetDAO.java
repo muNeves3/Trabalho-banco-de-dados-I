@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface VersaoDatasetDAO extends DAO<VersaoDataset> {
     public List<VersaoDataset> listarPorDataset(Integer datasetId) throws SQLException;
+    public void delete(Integer datasetId, Integer numeroVersao) throws SQLException;
+    public VersaoDataset read(Integer datasetId, Integer numeroVersao) throws SQLException;
 }

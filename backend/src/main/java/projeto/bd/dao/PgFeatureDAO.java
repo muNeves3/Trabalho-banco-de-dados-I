@@ -37,6 +37,12 @@ public class PgFeatureDAO implements FeatureDAO {
             "FROM sistema.feature " +
             "ORDER BY id;";
 
+    private static final String LIST_BY_VERSAO_QUERY =
+        "SELECT id, nome, tipo, descricao, dataset_id, numero_versao " +
+        "FROM sistema.feature " +
+        "WHERE dataset_id = ? AND numero_versao = ? " +
+        "ORDER BY id;";
+
     public PgFeatureDAO(Connection connection) {
         this.connection = connection;
     }
@@ -134,6 +140,32 @@ public class PgFeatureDAO implements FeatureDAO {
         } catch (SQLException ex) {
             Logger.getLogger(PgFeatureDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
             throw new SQLException("Erro ao listar features.");
+        }
+        return featureList;
+    }
+
+    @Override
+    public List<Feature> listarPorVersao(Integer datasetId, Integer numeroVersao) throws SQLException {
+        List<Feature> featureList = new ArrayList<>();
+
+        try (PreparedStatement statement = connection.prepareStatement(LIST_BY_VERSAO_QUERY)) {
+            statement.setInt(1, datasetId);
+            statement.setInt(2, numeroVersao);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Feature feature = new Feature();
+                    feature.setId(result.getInt("id"));
+                    feature.setNome(result.getString("nome"));
+                    feature.setTipo(result.getString("tipo"));
+                    feature.setDescricao(result.getString("descricao"));
+                    feature.setDatasetId(result.getInt("dataset_id"));
+                    feature.setNumeroVersao(result.getInt("numero_versao"));
+                    featureList.add(feature);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgFeatureDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao listar features da versão.");
         }
         return featureList;
     }
