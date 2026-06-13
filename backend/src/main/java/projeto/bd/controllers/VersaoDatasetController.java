@@ -1,8 +1,10 @@
 package projeto.bd.controllers;
 
+import projeto.bd.dao.AcessoVersaoDAO;
 import projeto.bd.dao.DAOFactory;
+import projeto.bd.models.AcessoVersao;
 
-import projeto.bd.dao.VersaoDatasetDAO; 
+import projeto.bd.dao.VersaoDatasetDAO;
 import projeto.bd.models.VersaoDataset;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +24,8 @@ public class VersaoDatasetController {
     public ResponseEntity<?> listarVersoesDoDataset(@PathVariable Integer datasetId) {
         try (DAOFactory daoFactory = DAOFactory.getInstance()) {
             VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
-
             List<VersaoDataset> versoes = dao.listarPorDataset(datasetId); 
+
             return ResponseEntity.ok(versoes);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -57,10 +59,36 @@ public class VersaoDatasetController {
         }
     }
 
+    @GetMapping("/{datasetId}/{numeroVersao}")
+    public ResponseEntity<?> detalharVersao(
+            @PathVariable Integer datasetId,
+            @PathVariable Integer numeroVersao,
+            @RequestParam("cpf") String cpf) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
+            VersaoDataset versao = dao.read(datasetId, numeroVersao);
+
+            AcessoVersaoDAO acessoDao = daoFactory.getAcessoVersaoDAO();
+            AcessoVersao acesso = new AcessoVersao();
+            acesso.setUsuarioCpf(cpf);
+            acesso.setDatasetId(datasetId);
+            acesso.setNumeroVersao(numeroVersao);
+            acesso.setTipoAcesso("visualizacao");
+            acessoDao.create(acesso);
+
+
+            return ResponseEntity.ok(versao);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                                .body("Versão não encontrada.");
+        }
+    }
+
     @GetMapping("/{datasetId}/{numeroVersao}/download")
     public ResponseEntity<byte[]> downloadArquivo(
             @PathVariable Integer datasetId,
-            @PathVariable Integer numeroVersao) {
+            @PathVariable Integer numeroVersao,
+            @RequestParam("cpf") String cpf) {
         try (DAOFactory daoFactory = DAOFactory.getInstance()) {
             VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
             VersaoDataset versao = dao.read(datasetId, numeroVersao);
@@ -68,6 +96,15 @@ public class VersaoDatasetController {
             if (versao.getArquivo() == null) {
                 return ResponseEntity.notFound().build();
             }
+
+            AcessoVersaoDAO acessoDao = daoFactory.getAcessoVersaoDAO();
+            AcessoVersao acesso = new AcessoVersao();
+            acesso.setUsuarioCpf(cpf);
+            acesso.setDatasetId(datasetId);
+            acesso.setNumeroVersao(numeroVersao);
+            acesso.setTipoAcesso("download");
+            acessoDao.create(acesso);
+    
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.parseMediaType("text/csv"));
