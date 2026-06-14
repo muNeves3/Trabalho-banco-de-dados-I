@@ -161,6 +161,16 @@ export async function listarDatasets(): Promise<Dataset[]> {
   return response.json();
 }
 
+export async function baixarDataset(id: number): Promise<Blob> {
+  const response = await fetch(`${API_BASE_URL}/api/datasets/${id}/download`);
+
+  if (!response.ok) {
+    await parseError(response, 'Erro ao baixar dataset.');
+  }
+
+  return response.blob();
+}
+
 
 // tipos e funções para ACESSO VERSAO
 
@@ -207,4 +217,58 @@ export async function listarAcessosPorDataset(datasetId: number): Promise<Acesso
   const response = await fetch(`${API_BASE_URL}/api/acessos-versao/dataset/${datasetId}`);
   if (!response.ok) throw new Error('Erro ao buscar acessos do dataset.');
   return response.json();
+}
+
+export type VersaoDataset = {
+  datasetId: number;
+  numeroVersao: number;
+  versaoBaseNumero: number | null;
+  criadorCpf: string;
+  descModificacoes: string;
+  criadoEm: string;
+};
+
+export type NovaVersaoPayload = {
+  datasetId: number;
+  versaoBaseNumero: number | null;
+  criadorCpf: string;
+  descModificacoes: string;
+  arquivo: string;
+  numeroVersao?: number;
+};
+
+export async function listarVersoesDataset(datasetId: number): Promise<VersaoDataset[]> {
+  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}`);
+  if (!response.ok) {
+    await parseError(response, 'Erro ao buscar versões do dataset.');
+  }
+  return response.json();
+}
+
+export async function baixarVersaoDataset(datasetId: number, numeroVersao: number): Promise<Blob> {
+  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}/download`);
+  if (!response.ok) {
+    await parseError(response, 'Erro ao baixar versão do dataset.');
+  }
+  return response.blob();
+}
+
+export async function visualizarVersaoDataset(datasetId: number, numeroVersao: number): Promise<VersaoDataset> {
+  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}`);
+  if (!response.ok) {
+    await parseError(response, 'Erro ao visualizar versão do dataset.');
+  }
+  return response.json();
+}
+
+export async function cadastrarNovaVersaoDataset(payload: NovaVersaoPayload): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/api/versoes`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    await parseError(response, 'Falha ao cadastrar nova versão.');
+  }
 }

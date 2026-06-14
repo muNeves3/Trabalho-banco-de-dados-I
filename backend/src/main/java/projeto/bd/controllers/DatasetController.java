@@ -2,7 +2,10 @@ package projeto.bd.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,6 +67,23 @@ public class DatasetController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                                  .body("Dataset não encontrado.");
+        }
+    }
+
+    @GetMapping("/{id}/download")
+    public ResponseEntity<?> baixarDataset(@PathVariable Integer id) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            DatasetDAO dao = daoFactory.getDatasetDAO();
+            byte[] arquivoCsv = dao.downloadCsv(id);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType("text/csv"));
+            headers.setContentDisposition(ContentDisposition.attachment().filename("dataset-" + id + ".csv").build());
+
+            return new ResponseEntity<>(arquivoCsv, headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                                 .body("Erro ao baixar dataset: " + e.getMessage());
         }
     }
 

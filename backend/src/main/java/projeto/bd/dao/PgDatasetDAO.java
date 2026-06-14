@@ -13,11 +13,12 @@ import projeto.bd.models.Dataset;
 public class PgDatasetDAO implements DatasetDAO {
 
     private final Connection connection;
+    private final PgVersaoDatasetDAO versaoDatasetDAO;
 
     // --- STRINGS SQL ---
     private static final String CREATE_QUERY =
             "INSERT INTO sistema.dataset(nome, descricao, fontes, criador_cpf, criado_em) " +
-            "VALUES(?, ?, ?, ?, ?);";
+            "VALUES(?, ?, ?, ?, ?) RETURNING id;";
 
     private static final String READ_QUERY =
             "SELECT id, nome, descricao, fontes, criador_cpf, criado_em " +
@@ -38,29 +39,52 @@ public class PgDatasetDAO implements DatasetDAO {
             "FROM sistema.dataset " +
             "ORDER BY id;";
 
-    // Construtor
-    public PgDatasetDAO(Connection connection) {
+    private static final String DOWNLOAD_CSV_QUERY =
+            "SELECT arquivo " +
+            "FROM sistema.versao_dataset " +
+            "WHERE dataset_id = ? " +
+            "ORDER BY numero_versao DESC " +
+            "LIMIT 1;";
+
+    public PgDatasetDAO(Connection connection, PgVersaoDatasetDAO versaoDatasetDAO) {
         this.connection = connection;
+        this.versaoDatasetDAO = versaoDatasetDAO;
     }
 
     @Override
     public void create(Dataset dataset) throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement(CREATE_QUERY)) {
-            statement.setString(1, dataset.getNome());
-            statement.setString(2, dataset.getDescricao());
-            statement.setString(3, dataset.getFontes());
-            statement.setString(4, dataset.getCriadorCpf());
+        boolean autoCommitAnterior = connection.getAutoCommit();
+        try {
+            connection.setAutoCommit(false);
+            Integer datasetIdCriado;
+            try (PreparedStatement statement = connection.prepareStatement(CREATE_QUERY)) {
+                statement.setString(1, dataset.getNome());
+                statement.setString(2, dataset.getDescricao());
+                statement.setString(3, dataset.getFontes());
+                statement.setString(4, dataset.getCriadorCpf());
 
-            if (dataset.getCriadoEm() != null) {
-                statement.setTimestamp(5, dataset.getCriadoEm());
-            } else {
-                statement.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+                if (dataset.getCriadoEm() != null) {
+                    statement.setTimestamp(5, dataset.getCriadoEm());
+                } else {
+                    statement.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+                }
+
+                try (ResultSet result = statement.executeQuery()) {
+                    if (!result.next()) {
+                        throw new SQLException("Erro ao inserir o dataset.");
+                    }
+                    datasetIdCriado = result.getInt("id");
+                }
             }
 
-            statement.executeUpdate();
+            this.versaoDatasetDAO.criarVersaoInicialDataset(datasetIdCriado, dataset.getCriadorCpf());
+            connection.commit();
         } catch (SQLException ex) {
+            connection.rollback();
             Logger.getLogger(PgDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
             throw new SQLException("Erro ao inserir o dataset.");
+        } finally {
+            connection.setAutoCommit(autoCommitAnterior);
         }
     }
 
@@ -143,5 +167,25 @@ public class PgDatasetDAO implements DatasetDAO {
             throw new SQLException("Erro ao listar datasets.");
         }
         return datasetList;
+    }
+
+    @Override
+    public byte[] downloadCsv(Integer id) throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement(DOWNLOAD_CSV_QUERY)) {
+            statement.setInt(1, id);
+            try (ResultSet result = statement.executeQuery()) {
+                if (result.next()) {
+                    byte[] arquivo = result.getBytes("arquivo");
+                    if (arquivo == null || arquivo.length == 0) {
+                        throw new SQLException("Erro: dataset sem arquivo CSV para download.");
+                    }
+                    return arquivo;
+                }
+                throw new SQLException("Erro: versão do dataset não encontrada para download.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao baixar dataset.");
+        }
     }
 }
