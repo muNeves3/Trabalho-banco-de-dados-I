@@ -285,7 +285,12 @@ function Home({ user, onLogout }: HomeProps) {
             {!loading && !errorMessage && datasets.length > 0 && (
               <div className="home-dataset-grid">
                 {datasets.map((dataset) => (
-                  <article key={dataset.id} className="home-dataset-card">
+                  <article 
+                    key={dataset.id} 
+                    className="home-dataset-card" 
+                    onClick={() => navigate(`/datasets/${dataset.id}`)}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <div className="home-dataset-card-header">
                       <h3>{dataset.nome}</h3>
                       <span className="home-dataset-id">#{dataset.id}</span>
@@ -295,16 +300,16 @@ function Home({ user, onLogout }: HomeProps) {
 
                     <dl className="home-dataset-meta">
                       <div>
-                        <dt>Fontes</dt>
-                        <dd>{dataset.fontes || '—'}</dd>
-                      </div>
-                      <div>
                         <dt>Criador</dt>
                         <dd>{dataset.criadorCpf}</dd>
                       </div>
                       <div>
                         <dt>Criado em</dt>
                         <dd>{formatarData(dataset.criadoEm)}</dd>
+                      </div>
+                      <div>
+                        <dt>Versões</dt>
+                        <dd>{dataset.quantidadeVersoes}</dd>
                       </div>
                     </dl>
 
