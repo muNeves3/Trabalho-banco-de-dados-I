@@ -11,5 +11,6 @@ public interface FeatureDAO {
     public void update(Feature feature) throws SQLException;
     public void delete(Integer id) throws SQLException;
     public List<Feature> all() throws SQLException;
+    public List<Feature> listarPorVersao(Integer datasetId, Integer numeroVersao) throws SQLException;
     
 }

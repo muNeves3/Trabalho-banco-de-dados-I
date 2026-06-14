@@ -86,4 +86,16 @@ public class FeatureController {
         }
 
     }
+
+    @GetMapping("/versao/{datasetId}/{numeroVersao}")
+    public ResponseEntity<?> listarPorVersao(@PathVariable Integer datasetId, @PathVariable Integer numeroVersao) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            FeatureDAO dao = daoFactory.getFeatureDAO();
+            List<Feature> features = dao.listarPorVersao(datasetId, numeroVersao);
+            return ResponseEntity.ok(features);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body("Erro ao buscar features da versão: " + e.getMessage());
+        }
+    }
 }

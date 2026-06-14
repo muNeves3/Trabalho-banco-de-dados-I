@@ -26,7 +26,7 @@ CREATE TABLE sistema.versao_dataset (
 	numero_versao INT NOT NULL,
 	criador_cpf varchar(11) NOT NULL,
 	desc_modificacoes VARCHAR (500),
-	caminho_arquivo VARCHAR(100),
+	arquivo BYTEA,
 	criado_em TIMESTAMP NOT NULL DEFAULT NOW(),
 	CONSTRAINT pk_versao PRIMARY KEY (dataset_id, numero_versao),
 	CONSTRAINT fk_versao_dataset FOREIGN KEY (dataset_id) REFERENCES sistema.dataset(id),
@@ -85,9 +85,9 @@ INSERT INTO sistema.versao_dataset (
 		versao_base_numero,
 		criador_cpf,
 		desc_modificacoes,
-		caminho_arquivo
+		arquivo
 	)
-VALUES(1, 1, null, '11111111111', 'adicionando fontes', 'C:/dataset');
+VALUES(1, 1, null, '11111111111', 'adicionando fontes', NULL);
 -- CRIANDO VERSAO A PARTIR DE OUTRA VERSAO
 INSERT INTO sistema.versao_dataset (
 		dataset_id,
@@ -95,9 +95,9 @@ INSERT INTO sistema.versao_dataset (
 		versao_base_numero,
 		criador_cpf,
 		desc_modificacoes,
-		caminho_arquivo
+		arquivo
 	)
-VALUES(1, 2, 1, '22222222222', 'formatando dados', 'C:/dataset');
+VALUES(1, 2, 1, '22222222222', 'formatando dados', NULL);
 SELECT *
 FROM sistema.versao_dataset;
 --------------------------------------------------------
