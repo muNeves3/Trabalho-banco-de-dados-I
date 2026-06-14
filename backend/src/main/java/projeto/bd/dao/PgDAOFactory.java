@@ -32,7 +32,7 @@ public class PgDAOFactory extends DAOFactory {
 
     @Override
     public DatasetDAO getDatasetDAO() {
-        return new PgDatasetDAO(this.connection);
+        return new PgDatasetDAO(this.connection, new PgVersaoDatasetDAO(this.connection));
     }
 
     @Override
