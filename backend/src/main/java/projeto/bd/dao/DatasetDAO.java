@@ -13,5 +13,7 @@ public interface DatasetDAO {
     public void update(Dataset dataset) throws SQLException;
     public void delete(Integer id) throws SQLException;
     public List<Dataset> all() throws SQLException;
-    public List<DatasetResumoDTO> allResumo () throws SQLException;    
+    public List<DatasetResumoDTO> allResumo () throws SQLException;
+    public byte[] downloadCsv(Integer id) throws SQLException;
+    
 }
