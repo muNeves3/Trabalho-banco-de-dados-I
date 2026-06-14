@@ -25,11 +25,7 @@ async function parseError(response: Response, fallbackMessage: string) {
 
 export async function buscarUsuarioPorCpf(cpf: string): Promise<Usuario> {
   const response = await fetch(`${API_BASE_URL}/api/usuarios/${cpf}`);
-
-  if (!response.ok) {
-    throw new Error('CPF não encontrado.');
-  }
-
+  if (!response.ok) throw new Error('CPF não encontrado.');
   return response.json();
 }
 
@@ -39,7 +35,6 @@ export async function loginUsuario(payload: LoginPayload): Promise<void> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
-
   if (!response.ok) {
     await parseError(response, 'Falha no login.');
   }
@@ -51,7 +46,6 @@ export async function cadastrarUsuario(payload: CadastroPayload): Promise<void> 
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
-
   if (!response.ok) {
     await parseError(response, 'Falha no cadastro.');
   }
@@ -59,19 +53,12 @@ export async function cadastrarUsuario(payload: CadastroPayload): Promise<void> 
 
 export async function listarUsuarios(): Promise<Usuario[]> {
   const response = await fetch(`${API_BASE_URL}/api/usuarios`);
-
-  if (!response.ok) {
-    throw new Error('Erro ao buscar usuários.');
-  }
-
+  if (!response.ok) throw new Error('Erro ao buscar usuários.');
   return response.json();
 }
 
 export async function deletarUsuario(cpf: string): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/api/usuarios/${cpf}`, {
-    method: 'DELETE'
-  });
-
+  const response = await fetch(`${API_BASE_URL}/api/usuarios/${cpf}`, { method: 'DELETE' });
   if (!response.ok) {
     await parseError(response, 'Erro ao deletar usuário.');
   }
@@ -79,11 +66,7 @@ export async function deletarUsuario(cpf: string): Promise<void> {
 
 export async function buscarPorId(id: number): Promise<Usuario> {
   const response = await fetch(`${API_BASE_URL}/api/usuarios/id/${id}`);
-
-  if (!response.ok) {
-    throw new Error('Usuário não encontrado.');
-  }
-
+  if (!response.ok) throw new Error('Usuário não encontrado.');
   return response.json();
 }
 
@@ -93,17 +76,13 @@ export async function atualizarUsuario(cpf: string, payload: Partial<CadastroPay
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
-
   if (!response.ok) {
     await parseError(response, 'Erro ao atualizar usuário.');
   }
 }
 
 export async function deletarUsuarioPorId(id: number): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/api/usuarios/id/${id}`, {
-    method: 'DELETE'
-  });
-
+  const response = await fetch(`${API_BASE_URL}/api/usuarios/id/${id}`, { method: 'DELETE' });
   if (!response.ok) {
     await parseError(response, 'Erro ao deletar usuário.');
   }
@@ -115,13 +94,12 @@ export async function authenticateUsuario(payload: LoginPayload): Promise<void> 
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
-
   if (!response.ok) {
     await parseError(response, 'Falha ao autenticar.');
   }
 }
 
-// tipos e funções para DATASETS
+// ==================== DATASETS ====================
 
 export type Dataset = {
   id: number;
@@ -130,6 +108,7 @@ export type Dataset = {
   fontes: string;
   criadorCpf: string;
   criadoEm: string;
+  quantidadeVersoes: number;
 };
 
 export type DatasetPayload = {
@@ -145,7 +124,6 @@ export async function cadastrarDataset(payload: DatasetPayload): Promise<void> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
-
   if (!response.ok) {
     await parseError(response, 'Falha ao cadastrar dataset.');
   }
@@ -153,22 +131,105 @@ export async function cadastrarDataset(payload: DatasetPayload): Promise<void> {
 
 export async function listarDatasets(): Promise<Dataset[]> {
   const response = await fetch(`${API_BASE_URL}/api/datasets`);
-
-  if (!response.ok) {
-    throw new Error('Erro ao buscar datasets.');
-  }
-
+  if (!response.ok) throw new Error('Erro ao buscar datasets.');
   return response.json();
 }
 
+export async function buscarDatasetPorId(id: number): Promise<Dataset> {
+  const response = await fetch(`${API_BASE_URL}/api/datasets/${id}`);
+  if (!response.ok) throw new Error('Dataset não encontrado.');
+  return response.json();
+}
 
-// tipos e funções para ACESSO VERSAO
+// ==================== VERSÕES ====================
+
+export type VersaoDataset = {
+  datasetId: number;
+  numeroVersao: number;
+  versaoBaseNumero: number | null;
+  criadorCpf: string;
+  descModificacoes: string;
+  criadoEm: string;
+};
+
+export async function listarVersoes(datasetId: number): Promise<VersaoDataset[]> {
+  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}`);
+  if (!response.ok) throw new Error('Erro ao buscar versões.');
+  return response.json();
+}
+
+export async function detalharVersao(datasetId: number, numeroVersao: number, cpf: string): Promise<VersaoDataset> {
+  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}?cpf=${cpf}`);
+  if (!response.ok) throw new Error('Erro ao buscar detalhes da versão.');
+  return response.json();
+}
+
+export async function criarVersao(
+  datasetId: number,
+  numeroVersao: number,
+  criadorCpf: string,
+  descModificacoes: string,
+  arquivo: File,
+  versaoBaseNumero?: number
+): Promise<void> {
+  const formData = new FormData();
+  formData.append('datasetId', datasetId.toString());
+  formData.append('numeroVersao', numeroVersao.toString());
+  formData.append('criadorCpf', criadorCpf);
+  formData.append('descModificacoes', descModificacoes);
+  formData.append('arquivo', arquivo);
+  if (versaoBaseNumero !== undefined) {
+    formData.append('versaoBaseNumero', versaoBaseNumero.toString());
+  }
+
+  const response = await fetch(`${API_BASE_URL}/api/versoes`, {
+    method: 'POST',
+    body: formData
+  });
+  if (!response.ok) {
+    await parseError(response, 'Erro ao criar versão.');
+  }
+}
+
+export function getDownloadUrl(datasetId: number, numeroVersao: number, cpf: string): string {
+  return `${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}/download?cpf=${cpf}`;
+}
+
+// ==================== FEATURES ====================
+
+export type Feature = {
+  id: number;
+  nome: string;
+  tipo: string;
+  descricao: string;
+  datasetId: number;
+  numeroVersao: number;
+};
+
+export async function listarFeaturesPorVersao(datasetId: number, numeroVersao: number): Promise<Feature[]> {
+  const response = await fetch(`${API_BASE_URL}/api/features/versao/${datasetId}/${numeroVersao}`);
+  if (!response.ok) throw new Error('Erro ao buscar features.');
+  return response.json();
+}
+
+export async function cadastrarFeature(feature: Omit<Feature, 'id'>): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/api/features`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(feature)
+  });
+  if (!response.ok) {
+    await parseError(response, 'Erro ao cadastrar feature.');
+  }
+}
+
+// ==================== ACESSO VERSÃO ====================
 
 export type AcessoVersaoRequest = {
   usuarioCpf: string;
   datasetId: number;
   numeroVersao: number;
-  tipoAcesso: string; 
+  tipoAcesso: string;
 };
 
 export type AcessoVersaoResponse = {
@@ -185,7 +246,6 @@ export async function registrarAcesso(payload: AcessoVersaoRequest): Promise<voi
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
-
   if (!response.ok) {
     await parseError(response, 'Falha ao registrar acesso.');
   }

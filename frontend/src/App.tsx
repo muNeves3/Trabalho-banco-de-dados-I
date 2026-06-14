@@ -5,6 +5,8 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Perfil from './components/Perfil/Perfil';
 import CadastroDataset from './components/CadastroDataset/CadastroDataset';
+import DatasetDetalhe from './components/DatasetDetalhe/DatasetDetalhe';
+import CadastroVersao from './components/CadastroVersao/CadastroVersao';
 import { buscarUsuarioPorCpf, cadastrarUsuario, loginUsuario } from './api/api';
 
 type UserSession = {
@@ -56,6 +58,14 @@ function App() {
       <Route
         path="/datasets/novo"
         element={user ? <CadastroDataset cpfCriador={user.cpf} /> : <Navigate to="/login" replace />}
+      />
+      <Route
+        path="/datasets/:id"
+        element={user ? <DatasetDetalhe user={user} /> : <Navigate to="/login" replace />}
+      />
+      <Route
+        path="/datasets/:id/nova-versao"
+        element={user ? <CadastroVersao user={user} /> : <Navigate to="/login" replace />}
       />
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
