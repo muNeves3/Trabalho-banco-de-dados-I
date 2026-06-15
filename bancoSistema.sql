@@ -13,11 +13,17 @@ CREATE TABLE sistema.dataset (
 	id SERIAL,
 	nome VARCHAR NOT NULL,
 	descricao VARCHAR,
-	fontes VARCHAR,
 	criador_cpf varchar(11) NOT NULL,
 	criado_em TIMESTAMP NOT NULL DEFAULT NOW(),
 	CONSTRAINT pk_dataset PRIMARY KEY (id),
 	CONSTRAINT fk_dataset FOREIGN KEY (criador_cpf) REFERENCES sistema.usuario(cpf)
+);
+
+CREATE TABLE sistema.fonte_dataset (
+    dataset_id INT NOT NULL,
+    fonte VARCHAR NOT NULL,
+    CONSTRAINT pk_fonte_dataset PRIMARY KEY (dataset_id, fonte),
+    CONSTRAINT fk_fonte_dataset FOREIGN KEY (dataset_id) REFERENCES sistema.dataset(id)
 );
 
 CREATE TABLE sistema.versao_dataset (
@@ -70,12 +76,18 @@ SELECT *
 FROM sistema.usuario;
 --------------------------------------------------------
 -------------------- INSERT DATASET --------------------
-INSERT INTO sistema.dataset (nome, descricao, fontes, criador_cpf)
-VALUES ('dataset 1', 'dataset 1', 'fontes', '11111111111'),
-	('dataset 2', 'dataset 2', 'fontes', '11111111111'),
-	('dataset 3', 'dataset 3', 'fontes', '33333333333');
+INSERT INTO sistema.dataset (nome, descricao, criador_cpf)
+VALUES ('dataset 1', 'dataset 1', '11111111111'),
+	('dataset 2', 'dataset 2', '11111111111'),
+	('dataset 3', 'dataset 3', '33333333333');
 SELECT *
 FROM sistema.dataset;
+--------------------------------------------------------
+-------------------- INSERT FONTE ----------------------
+INSERT INTO sistema.fonte_dataset (dataset_id, fonte)
+VALUES (1, 'Kaggle'),
+       (1, 'UCI Repository'),
+       (3, 'IBGE');
 --------------------------------------------------------
 -------------------- INSERT VERSAO DATASET --------------
 -- CRIANDO VERSAO A PARTIR DO DATASET ORIGINAL

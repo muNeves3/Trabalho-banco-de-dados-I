@@ -105,7 +105,6 @@ export type Dataset = {
   id: number;
   nome: string;
   descricao: string;
-  fontes: string;
   criadorCpf: string;
   criadoEm: string;
   quantidadeVersoes: number;
@@ -114,11 +113,10 @@ export type Dataset = {
 export type DatasetPayload = {
   nome: string;
   descricao: string;
-  fontes: string;
   criadorCpf: string;
 };
 
-export async function cadastrarDataset(payload: DatasetPayload): Promise<void> {
+export async function cadastrarDataset(payload: DatasetPayload): Promise<{ id: number; mensagem: string }> {
   const response = await fetch(`${API_BASE_URL}/api/datasets`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -127,6 +125,7 @@ export async function cadastrarDataset(payload: DatasetPayload): Promise<void> {
   if (!response.ok) {
     await parseError(response, 'Falha ao cadastrar dataset.');
   }
+  return response.json();
 }
 
 export async function listarDatasets(): Promise<Dataset[]> {
@@ -139,6 +138,23 @@ export async function buscarDatasetPorId(id: number): Promise<Dataset> {
   const response = await fetch(`${API_BASE_URL}/api/datasets/${id}`);
   if (!response.ok) throw new Error('Dataset não encontrado.');
   return response.json();
+}
+
+export async function listarFontes(datasetId: number): Promise<string[]> {
+  const response = await fetch(`${API_BASE_URL}/api/fontes/${datasetId}`);
+  if (!response.ok) throw new Error('Erro ao buscar fontes.');
+  return response.json();
+}
+
+export async function adicionarFonte(datasetId: number, fonte: string): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/api/fontes/${datasetId}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(fonte)
+  });
+  if (!response.ok) {
+    await parseError(response, 'Erro ao adicionar fonte.');
+  }
 }
 
 // ==================== VERSÕES ====================
@@ -267,50 +283,4 @@ export async function listarAcessosPorDataset(datasetId: number): Promise<Acesso
   const response = await fetch(`${API_BASE_URL}/api/acessos-versao/dataset/${datasetId}`);
   if (!response.ok) throw new Error('Erro ao buscar acessos do dataset.');
   return response.json();
-}
-
-export type NovaVersaoPayload = {
-  datasetId: number;
-  versaoBaseNumero: number | null;
-  criadorCpf: string;
-  descModificacoes: string;
-  arquivo: string;
-  numeroVersao?: number;
-};
-
-export async function listarVersoesDataset(datasetId: number): Promise<VersaoDataset[]> {
-  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}`);
-  if (!response.ok) {
-    await parseError(response, 'Erro ao buscar versões do dataset.');
-  }
-  return response.json();
-}
-
-export async function baixarVersaoDataset(datasetId: number, numeroVersao: number): Promise<Blob> {
-  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}/download`);
-  console.log(response)
-  if (!response.ok) {
-    await parseError(response, 'Erro ao baixar versão do dataset.');
-  }
-  return response.blob();
-}
-
-export async function visualizarVersaoDataset(datasetId: number, numeroVersao: number): Promise<VersaoDataset> {
-  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}`);
-  if (!response.ok) {
-    await parseError(response, 'Erro ao visualizar versão do dataset.');
-  }
-  return response.json();
-}
-
-export async function cadastrarNovaVersaoDataset(payload: NovaVersaoPayload): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/api/versoes`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-
-  if (!response.ok) {
-    await parseError(response, 'Falha ao cadastrar nova versão.');
-  }
 }

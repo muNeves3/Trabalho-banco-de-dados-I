@@ -19,17 +19,17 @@ public class PgDatasetDAO implements DatasetDAO {
 
     // --- STRINGS SQL ---
     private static final String CREATE_QUERY =
-            "INSERT INTO sistema.dataset(nome, descricao, fontes, criador_cpf, criado_em) " +
-            "VALUES(?, ?, ?, ?, ?) RETURNING id;";
+            "INSERT INTO sistema.dataset(nome, descricao, criador_cpf, criado_em) " +
+            "VALUES(?, ?, ?, ?) RETURNING id;";
 
     private static final String READ_QUERY =
-            "SELECT id, nome, descricao, fontes, criador_cpf, criado_em " +
+            "SELECT id, nome, descricao, criador_cpf, criado_em " +
             "FROM sistema.dataset " +
             "WHERE id = ?;";
 
     private static final String UPDATE_QUERY =
             "UPDATE sistema.dataset " +
-            "SET nome = ?, descricao = ?, fontes = ?, criador_cpf = ?, criado_em = ? " +
+            "SET nome = ?, descricao = ?, criador_cpf = ?, criado_em = ? " +
             "WHERE id = ?;";
 
     private static final String DELETE_QUERY =
@@ -37,7 +37,7 @@ public class PgDatasetDAO implements DatasetDAO {
             "WHERE id = ?;";
 
     private static final String ALL_QUERY =
-            "SELECT id, nome, descricao, fontes, criador_cpf, criado_em " +
+            "SELECT id, nome, descricao, criador_cpf, criado_em " +
             "FROM sistema.dataset " +
             "ORDER BY id;";
 
@@ -69,13 +69,12 @@ public class PgDatasetDAO implements DatasetDAO {
             try (PreparedStatement statement = connection.prepareStatement(CREATE_QUERY)) {
                 statement.setString(1, dataset.getNome());
                 statement.setString(2, dataset.getDescricao());
-                statement.setString(3, dataset.getFontes());
-                statement.setString(4, dataset.getCriadorCpf());
+                statement.setString(3, dataset.getCriadorCpf());
 
                 if (dataset.getCriadoEm() != null) {
-                    statement.setTimestamp(5, dataset.getCriadoEm());
+                    statement.setTimestamp(4, dataset.getCriadoEm());
                 } else {
-                    statement.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+                    statement.setTimestamp(4, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
                 }
 
                 try (ResultSet result = statement.executeQuery()) {
@@ -83,6 +82,7 @@ public class PgDatasetDAO implements DatasetDAO {
                         throw new SQLException("Erro ao inserir o dataset.");
                     }
                     datasetIdCriado = result.getInt("id");
+                    dataset.setId(datasetIdCriado);
                 }
             }
 
@@ -108,7 +108,6 @@ public class PgDatasetDAO implements DatasetDAO {
                     dataset.setId(result.getInt("id"));
                     dataset.setNome(result.getString("nome"));
                     dataset.setDescricao(result.getString("descricao"));
-                    dataset.setFontes(result.getString("fontes"));
                     dataset.setCriadorCpf(result.getString("criador_cpf"));
                     dataset.setCriadoEm(result.getTimestamp("criado_em"));
                 } else {
@@ -127,10 +126,9 @@ public class PgDatasetDAO implements DatasetDAO {
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_QUERY)) {
             statement.setString(1, dataset.getNome());
             statement.setString(2, dataset.getDescricao());
-            statement.setString(3, dataset.getFontes());
-            statement.setString(4, dataset.getCriadorCpf());
-            statement.setTimestamp(5, dataset.getCriadoEm());
-            statement.setInt(6, dataset.getId()); // O ID vai no WHERE
+            statement.setString(3, dataset.getCriadorCpf());
+            statement.setTimestamp(4, dataset.getCriadoEm());
+            statement.setInt(5, dataset.getId()); // O ID vai no WHERE
 
             if (statement.executeUpdate() < 1) {
                 throw new SQLException("Erro: dataset não encontrado para edição.");
@@ -165,7 +163,6 @@ public class PgDatasetDAO implements DatasetDAO {
                 dataset.setId(result.getInt("id"));
                 dataset.setNome(result.getString("nome"));
                 dataset.setDescricao(result.getString("descricao"));
-                dataset.setFontes(result.getString("fontes"));
                 dataset.setCriadorCpf(result.getString("criador_cpf"));
                 dataset.setCriadoEm(result.getTimestamp("criado_em"));
 
