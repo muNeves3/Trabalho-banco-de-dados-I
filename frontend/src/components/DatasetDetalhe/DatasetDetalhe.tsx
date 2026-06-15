@@ -256,14 +256,14 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
                   )}
                 </div>
 
-                <button
+                {/* <button
                   type="button"
                   className="detalhe-btn-baixar"
                   onClick={() => handleDownload(v.numeroVersao)}
                   style={{ marginTop: '12px' }}
                 >
                   Baixar CSV
-                </button>
+                </button> */}
               </div>
             )}
           </div>

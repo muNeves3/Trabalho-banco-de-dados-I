@@ -25,6 +25,9 @@ type HomeProps = {
 function Home({ user, onLogout }: HomeProps) {
   const navigate = useNavigate();
   const [datasets, setDatasets] = useState<Dataset[]>([]);
+  const [diffDatasetsFiltrados, setDiffDatasetsFiltrados] = useState<Dataset[]>([]);
+  const [datasetsFiltrados, setDatasetsFiltrados] = useState<Dataset[]>([]);
+  const [isFiltrandoMeusDatasets, setIsFiltrandoMeusDatasets] = useState(false);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const [menuAberto, setMenuAberto] = useState(false);
@@ -218,6 +221,25 @@ function Home({ user, onLogout }: HomeProps) {
     return Number.isNaN(data.getTime()) ? criadoEm : formatter.format(data);
   };
 
+  const toggleMeusDatasets = () => {
+    if(isFiltrandoMeusDatasets === false) {
+      const datasetsFiltrados = datasets.filter((dataset) => dataset.criadorCpf === user.cpf);
+      const diffDatasetsFiltrados = datasets.filter((dataset) => dataset.criadorCpf !== user.cpf);
+      setDatasetsFiltrados(datasetsFiltrados);
+      setDiffDatasetsFiltrados(diffDatasetsFiltrados);
+      setIsFiltrandoMeusDatasets(true);
+      setDatasets(datasetsFiltrados);
+      return;
+    }
+    let uniaoFiltradosRestante = [...datasetsFiltrados, ...diffDatasetsFiltrados];
+    setDatasetsFiltrados([]);
+    setDiffDatasetsFiltrados([]);
+    setIsFiltrandoMeusDatasets(false);
+    uniaoFiltradosRestante = uniaoFiltradosRestante.sort((a, b) => a.id - b.id);
+    setDatasets(uniaoFiltradosRestante);
+    
+  }
+
   return (
     <div className="home-page">
       <div className="home-shell">
@@ -228,6 +250,10 @@ function Home({ user, onLogout }: HomeProps) {
           </div>
 
           <div className="home-topbar-actions">
+            <button type="button" className="home-primary-button" onClick={() => toggleMeusDatasets()}>
+              Meus datasets
+            </button>
+
             <button type="button" className="home-primary-button" onClick={() => navigate('/datasets/novo')}>
               Cadastrar dataset
             </button>
