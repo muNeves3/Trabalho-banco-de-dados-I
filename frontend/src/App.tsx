@@ -23,8 +23,8 @@ function App() {
     setUser({ cpf, email: usuario.email });
   };
 
-  const handleCadastro = async (cpf: string, email: string, senha: string) => {
-    await cadastrarUsuario({ cpf, email, senhaHash: senha, nome: cpf });
+  const handleCadastro = async (cpf: string, email: string, nome: string, senha: string) => {
+    await cadastrarUsuario({ cpf, email, nome, senhaHash: senha });
     setUser({ cpf, email });
   };
 

@@ -211,6 +211,19 @@ export function getDownloadUrl(datasetId: number, numeroVersao: number, cpf: str
   return `${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}/download?cpf=${cpf}`;
 }
 
+export async function uploadArquivo(datasetId: number, numeroVersao: number, arquivo: any) : Promise<void> {
+  const formData = new FormData();
+  formData.append('arquivo', arquivo);
+
+  const response = await fetch(`${API_BASE_URL}/api/versoes/${datasetId}/${numeroVersao}/upload`, {
+    method: 'POST',
+    body: formData
+  });
+  if (!response.ok) {
+    await parseError(response, 'Erro ao fazer upload do arquivo.');
+  }
+}
+
 // ==================== FEATURES ====================
 
 export type Feature = {
