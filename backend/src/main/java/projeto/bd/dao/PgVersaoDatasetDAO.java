@@ -44,7 +44,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
             if (versao.getVersaoBaseNumero() != null) {
                 statement.setInt(2, versao.getVersaoBaseNumero());
             } else {
-                statement.setNull(2, 1);
+                statement.setNull(2, java.sql.Types.INTEGER);
             }
             
             statement.setInt(3, versao.getNumeroVersao());
