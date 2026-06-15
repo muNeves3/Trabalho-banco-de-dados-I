@@ -164,4 +164,19 @@ public class VersaoDatasetController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    @PostMapping("/{datasetId}/{numeroVersao}/upload")
+    public ResponseEntity<String> uploadArquivo(
+            @PathVariable Integer datasetId,
+            @PathVariable Integer numeroVersao,
+            @RequestPart("arquivo") MultipartFile arquivo) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
+            dao.uploadArquivo(arquivo.getBytes(), datasetId, numeroVersao);
+            return ResponseEntity.ok("Arquivo atualizado com sucesso!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body("Erro ao atualizar arquivo: " + e.getMessage());
+        }
+    }
 }

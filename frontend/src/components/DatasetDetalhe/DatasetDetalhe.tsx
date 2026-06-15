@@ -11,7 +11,8 @@ import {
   cadastrarFeature,
   Dataset, 
   VersaoDataset, 
-  Feature 
+  Feature,
+  uploadArquivo
 } from '../../api/api';
 import './DatasetDetalhe.css';
 
@@ -123,6 +124,15 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
     window.open(url, '_blank');
   };
 
+  const handleUpload = (numeroVersao: number, datasetId: number, arquivo: any) => {
+    try {
+      uploadArquivo(datasetId, numeroVersao, arquivo);
+      alert('Arquivo enviado com sucesso!');
+    } catch (error) {
+      alert('Erro ao enviar arquivo.');
+    }
+  }
+
   const handleSalvarFeature = async () => {
     if (!versaoSelecionada) return;
     setSalvandoFeature(true);
@@ -216,7 +226,7 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
         {versoes.map((v) => (
           <div key={v.numeroVersao} className="detalhe-versao">
             <div className="detalhe-versao-header">
-              <strong>Versão {v.numeroVersao}</strong>
+              <strong>Versão {v.numeroVersao === 1 ? "Inicial (1)" : v.numeroVersao}</strong>
               <div className="detalhe-versao-acoes">
                 <button
                   type="button"
@@ -248,6 +258,8 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
                     <button
                       type="button"
                       className="detalhe-btn-add-feature"
+                      disabled={v.criadorCpf !== user.cpf}
+                      style={{opacity: v.criadorCpf === user.cpf ? 1 : 0.5}}
                       onClick={() => setMostrarFormFeature(!mostrarFormFeature)}
                     >
                       {mostrarFormFeature ? 'Cancelar' : '+ Adicionar'}
@@ -314,6 +326,26 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
                 >
                   Baixar CSV
                 </button>
+
+                <label
+                  className="detalhe-btn-baixar"
+                  style={{ marginTop: '12px', marginLeft: '10px', opacity: v.criadorCpf === user.cpf ? 1 : 0.5 }}
+                >
+                  Upload CSV
+                  <input 
+                    type="file" 
+                    accept=".csv" 
+                    disabled={v.criadorCpf !== user.cpf}
+                    id={`upload-${v.numeroVersao}`} 
+                    style={{ display: 'none', opacity: v.criadorCpf === user.cpf ? 1 : 0.5 }} 
+                    onChange={(e) => {
+                      const file = e.target.files ? e.target.files[0] : null;
+                      if (file) {
+                        handleUpload(v.numeroVersao, datasetId, file);
+                      }
+                    }}
+                  />
+                </label>
               </div>
             )}
           </div>

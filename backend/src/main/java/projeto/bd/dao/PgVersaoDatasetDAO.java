@@ -33,6 +33,8 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
 
     private static final String DELETE_QUERY = "DELETE FROM sistema.versao_dataset WHERE dataset_id = ?;";
 
+    private static final String UPLOAD_FILE_QUERY = "UPDATE sistema.versao_dataset SET arquivo = ? WHERE dataset_id = ? AND numero_versao = ?;";
+
     public PgVersaoDatasetDAO(Connection connection) {
         this.connection = connection;
     }
@@ -68,6 +70,10 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
         versaoInicial.setDescModificacoes("Versão inicial");
         versaoInicial.setArquivo(new byte[0]);
         create(versaoInicial);
+    }
+
+    public void inserirFeaturesDatasetOriginalVersaoDatasetIncial(Integer datasetId) throws SQLException  {
+
     }
 
     @Override
@@ -224,4 +230,16 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
     public void delete(Integer id) throws SQLException {
         throw new UnsupportedOperationException("Chave composta. Utilize delete(datasetId, numeroVersao).");
     }    
+
+    @Override
+    public void uploadArquivo (byte[] arquivo, Integer datasetId, Integer numeroVersao) {
+        try(PreparedStatement statement = connection.prepareStatement(UPLOAD_FILE_QUERY)) {
+            statement.setBytes(1, arquivo); // Placeholder para o arquivo
+            statement.setInt(2, datasetId);
+            statement.setInt(3, numeroVersao);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PgVersaoDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+        }
+    }
 }

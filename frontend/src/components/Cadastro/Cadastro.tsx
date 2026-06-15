@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Cadastro.css';
 
 type CadastroProps = {
-  onCadastro: (cpf: string, email: string, senha: string) => Promise<void>;
+  onCadastro: (cpf: string, email: string, nome: string, senha: string) => Promise<void>;
 };
 
 function Cadastro({ onCadastro }: CadastroProps) {
@@ -11,6 +11,7 @@ function Cadastro({ onCadastro }: CadastroProps) {
   const [cpf, setCpf] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [nome, setNome] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -20,7 +21,7 @@ function Cadastro({ onCadastro }: CadastroProps) {
     setLoading(true);
 
     try {
-      await onCadastro(cpf, email, senha);
+      await onCadastro(cpf, email, nome, senha);
       setSenha('');
       navigate('/home');
     } catch (error) {
@@ -53,6 +54,15 @@ function Cadastro({ onCadastro }: CadastroProps) {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+
+          <label htmlFor="register-nome">Nome</label>
+          <input
+            id="register-nome"
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />  
 
           <label htmlFor="register-senha">Senha</label>
           <input

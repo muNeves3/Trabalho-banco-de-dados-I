@@ -9,4 +9,5 @@ public interface VersaoDatasetDAO extends DAO<VersaoDataset> {
     public void delete(Integer datasetId, Integer numeroVersao) throws SQLException;
     public VersaoDataset read(Integer datasetId, Integer numeroVersao) throws SQLException;
     public VersaoDataset buscarPorDatasetENumero(Integer datasetId, Integer numeroVersao) throws SQLException;
+    public void uploadArquivo (byte[] arquivo, Integer datasetId, Integer numeroVersao) throws SQLException;
 }
