@@ -25,11 +25,13 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
 
     private static final String ALL_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset ORDER BY dataset_id, numero_versao;";
 
-    private static final String READ_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
+    private static final String READ_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? ORDER BY numero_versao DESC LIMIT 1;";
+
+    private static final String READ_BY_DATASET_AND_VERSION_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
 
     private static final String UPDATE_QUERY = "UPDATE sistema.versao_dataset SET versao_base_numero = ?, criador_cpf = ?, desc_modificacoes = ?, arquivo = ? WHERE dataset_id = ? AND numero_versao = ?;";
 
-    private static final String DELETE_QUERY = "DELETE FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
+    private static final String DELETE_QUERY = "DELETE FROM sistema.versao_dataset WHERE dataset_id = ?;";
 
     public PgVersaoDatasetDAO(Connection connection) {
         this.connection = connection;
@@ -39,8 +41,6 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
         try (PreparedStatement statement = connection.prepareStatement(CREATE_QUERY)) {
             statement.setInt(1, versao.getDatasetId());
             
-            // regra de negócio: um dataset começa na versão 1, cada versão nova baseada nele ou em outra versão é incrementada em 1.
-            // então pode ter vários datasets com versão 1, mas só pode ter um dataset com versão 2 baseado na versão 1 criado por um usuario x, e assim por diante.
             if (versao.getVersaoBaseNumero() != null) {
                 statement.setInt(2, versao.getVersaoBaseNumero());
             } else {
@@ -57,6 +57,17 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
             Logger.getLogger(PgVersaoDatasetDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
             throw new SQLException("Erro ao inserir versão do dataset.");
         }
+    }
+
+    public void criarVersaoInicialDataset(Integer datasetId, String criadorCpf) throws SQLException {
+        VersaoDataset versaoInicial = new VersaoDataset();
+        versaoInicial.setDatasetId(datasetId);
+        versaoInicial.setNumeroVersao(1);
+        versaoInicial.setVersaoBaseNumero(null);
+        versaoInicial.setCriadorCpf(criadorCpf);
+        versaoInicial.setDescModificacoes("Versão inicial");
+        versaoInicial.setArquivo(new byte[0]);
+        create(versaoInicial);
     }
 
     @Override
@@ -140,6 +151,34 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
                 } else {
                     throw new SQLException("Versão não encontrada.");
                 }
+            }
+        }
+    }
+
+    @Override
+    public VersaoDataset buscarPorDatasetENumero(Integer datasetId, Integer numeroVersao) throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement(READ_BY_DATASET_AND_VERSION_QUERY)) {
+            statement.setInt(1, datasetId);
+            statement.setInt(2, numeroVersao);
+            try (ResultSet result = statement.executeQuery()) {
+                if (result.next()) {
+                    VersaoDataset v = new VersaoDataset();
+                    v.setDatasetId(result.getInt("dataset_id"));
+
+                    int versaoBase = result.getInt("versao_base_numero");
+                    if (!result.wasNull()) {
+                        v.setVersaoBaseNumero(versaoBase);
+                    }
+
+                    v.setNumeroVersao(result.getInt("numero_versao"));
+                    v.setCriadorCpf(result.getString("criador_cpf"));
+                    v.setDescModificacoes(result.getString("desc_modificacoes"));
+                    v.setArquivo(result.getBytes("arquivo"));
+                    v.setCriadoEm(result.getTimestamp("criado_em"));
+
+                    return v;
+                }
+                return null;
             }
         }
     }

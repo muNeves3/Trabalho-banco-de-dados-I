@@ -268,3 +268,4 @@ export async function listarAcessosPorDataset(datasetId: number): Promise<Acesso
   if (!response.ok) throw new Error('Erro ao buscar acessos do dataset.');
   return response.json();
 }
+
