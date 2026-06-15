@@ -25,7 +25,7 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
 
     private static final String ALL_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset ORDER BY dataset_id, numero_versao;";
 
-    private static final String READ_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? ORDER BY numero_versao DESC LIMIT 1;";
+    private static final String READ_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? and numero_versao = ? ORDER BY numero_versao DESC LIMIT 1;";
 
     private static final String READ_BY_DATASET_AND_VERSION_QUERY = "SELECT dataset_id, versao_base_numero, numero_versao, criador_cpf, desc_modificacoes, arquivo, criado_em FROM sistema.versao_dataset WHERE dataset_id = ? AND numero_versao = ?;";
 
@@ -130,6 +130,8 @@ public class PgVersaoDatasetDAO implements VersaoDatasetDAO {
         try (PreparedStatement statement = connection.prepareStatement(READ_QUERY)) {
             statement.setInt(1, id);
             statement.setInt(2, numeroVersao);
+            // print read query
+            System.out.println("Executing query: " + statement.toString());
 
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next()) {

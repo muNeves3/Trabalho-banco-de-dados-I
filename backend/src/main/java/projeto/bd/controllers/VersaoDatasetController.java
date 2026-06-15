@@ -36,42 +36,42 @@ public class VersaoDatasetController {
         }
     }
 
-    @GetMapping("/{datasetId}/{numeroVersao}")
-    public ResponseEntity<?> buscarVersaoPorNumero(@PathVariable Integer datasetId, @PathVariable Integer numeroVersao) {
-        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
-            VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
-            VersaoDataset versao = dao.buscarPorDatasetENumero(datasetId, numeroVersao);
-            if (versao == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Versão não encontrada.");
-            }
-            return ResponseEntity.ok(versao);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                 .body("Erro ao buscar versão: " + e.getMessage());
-        }
-    }
+    // @GetMapping("/{datasetId}/{numeroVersao}")
+    // public ResponseEntity<?> buscarVersaoPorNumero(@PathVariable Integer datasetId, @PathVariable Integer numeroVersao) {
+    //     try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+    //         VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
+    //         VersaoDataset versao = dao.buscarPorDatasetENumero(datasetId, numeroVersao);
+    //         if (versao == null) {
+    //             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Versão não encontrada.");
+    //         }
+    //         return ResponseEntity.ok(versao);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+    //                              .body("Erro ao buscar versão: " + e.getMessage());
+    //     }
+    // }
 
-    @GetMapping("/{datasetId}/{numeroVersao}/download")
-    public ResponseEntity<?> baixarVersao(@PathVariable Integer datasetId, @PathVariable Integer numeroVersao) {
-        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
-            VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
-            VersaoDataset versao = dao.buscarPorDatasetENumero(datasetId, numeroVersao);
-            if (versao == null || versao.getArquivo() == null || versao.getArquivo().length == 0) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Arquivo da versão não encontrado.");
-            }
+    // @GetMapping("/{datasetId}/{numeroVersao}/download")
+    // public ResponseEntity<?> baixarVersao(@PathVariable Integer datasetId, @PathVariable Integer numeroVersao) {
+    //     try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+    //         VersaoDatasetDAO dao = daoFactory.getVersaoDatasetDAO();
+    //         VersaoDataset versao = dao.buscarPorDatasetENumero(datasetId, numeroVersao);
+    //         if (versao == null || versao.getArquivo() == null || versao.getArquivo().length == 0) {
+    //             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Arquivo da versão não encontrado.");
+    //         }
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.parseMediaType("text/csv"));
-            headers.setContentDisposition(
-                ContentDisposition.attachment().filename("dataset-" + datasetId + "-versao-" + numeroVersao + ".csv").build()
-            );
+    //         HttpHeaders headers = new HttpHeaders();
+    //         headers.setContentType(MediaType.parseMediaType("text/csv"));
+    //         headers.setContentDisposition(
+    //             ContentDisposition.attachment().filename("dataset-" + datasetId + "-versao-" + numeroVersao + ".csv").build()
+    //         );
 
-            return new ResponseEntity<>(versao.getArquivo(), headers, HttpStatus.OK);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                 .body("Erro ao baixar versão: " + e.getMessage());
-        }
-    }
+    //         return new ResponseEntity<>(versao.getArquivo(), headers, HttpStatus.OK);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+    //                              .body("Erro ao baixar versão: " + e.getMessage());
+    //     }
+    // }
 
     @PostMapping
     public ResponseEntity<String> salvarNovaVersao(
