@@ -1,6 +1,8 @@
 package projeto.bd.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
@@ -40,19 +42,21 @@ public class DatasetController {
     }
 
     @PostMapping
-    public ResponseEntity<String> criarDataset(@RequestBody DatasetRequestDTO dto) {
+    public ResponseEntity<?> criarDataset(@RequestBody DatasetRequestDTO dto) {
         try (DAOFactory daoFactory = DAOFactory.getInstance()) {
             Dataset novoDataset = new Dataset();
             novoDataset.setNome(dto.getNome());
             novoDataset.setDescricao(dto.getDescricao());
-            novoDataset.setFontes(dto.getFontes());
             novoDataset.setCriadorCpf(dto.getCriadorCpf());
 
 
             DatasetDAO dao = daoFactory.getDatasetDAO();
             dao.create(novoDataset);
 
-            return ResponseEntity.status(HttpStatus.CREATED).body("Dataset criado com sucesso!");
+            Map<String, Object> resposta = new HashMap<>();
+            resposta.put("id", novoDataset.getId());
+            resposta.put("mensagem", "Dataset criado com sucesso!");
+            return ResponseEntity.status(HttpStatus.CREATED).body(resposta);        
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                                  .body("Erro ao criar dataset: " + e.getMessage());

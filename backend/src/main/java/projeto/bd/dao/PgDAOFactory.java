@@ -39,4 +39,9 @@ public class PgDAOFactory extends DAOFactory {
     public AcessoVersaoDAO getAcessoVersaoDAO() {
         return new PgAcessoVersaoDAO(this.connection);
     }
+
+    @Override
+    public FonteDatasetDAO getFonteDatasetDAO() {
+        return new PgFonteDatasetDAO(this.connection);
+}
 }

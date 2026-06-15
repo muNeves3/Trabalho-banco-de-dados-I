@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { 
   buscarDatasetPorId, 
   listarVersoes, 
+  listarFontes,
+  adicionarFonte,
   detalharVersao, 
   listarFeaturesPorVersao, 
   getDownloadUrl,
@@ -29,6 +31,9 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
 
   const [dataset, setDataset] = useState<Dataset | null>(null);
   const [versoes, setVersoes] = useState<VersaoDataset[]>([]);
+  const [fontes, setFontes] = useState<string[]>([]);
+  const [novaFonte, setNovaFonte] = useState('');
+  const [salvandoFonte, setSalvandoFonte] = useState(false);
   const [versaoSelecionada, setVersaoSelecionada] = useState<number | null>(null);
   const [features, setFeatures] = useState<Feature[]>([]);
   const [loading, setLoading] = useState(true);
@@ -56,12 +61,14 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
     const carregar = async () => {
       setLoading(true);
       try {
-        const [ds, vs] = await Promise.all([
+        const [ds, vs, fs] = await Promise.all([
           buscarDatasetPorId(datasetId),
-          listarVersoes(datasetId)
+          listarVersoes(datasetId),
+          listarFontes(datasetId)
         ]);
         setDataset(ds);
         setVersoes(vs);
+        setFontes(fs);
       } catch (error) {
         const msg = error instanceof Error ? error.message : 'Erro ao carregar dataset.';
         setErrorMessage(msg);
@@ -71,6 +78,21 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
     };
     carregar();
   }, [datasetId]);
+
+  const handleAdicionarFonte = async () => {
+    if (!novaFonte.trim()) return;
+    setSalvandoFonte(true);
+    try {
+      await adicionarFonte(datasetId, novaFonte.trim());
+      const fs = await listarFontes(datasetId);
+      setFontes(fs);
+      setNovaFonte('');
+    } catch (error) {
+      setErrorMessage('Erro ao adicionar fonte.');
+    } finally {
+      setSalvandoFonte(false);
+    }
+  };
 
   const handleVisualizar = async (numeroVersao: number) => {
     if (versaoSelecionada === numeroVersao) {
@@ -143,9 +165,37 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
 
         <div className="detalhe-info">
           <p>{dataset.descricao}</p>
-          <p><strong>Fontes:</strong> {dataset.fontes || '—'}</p>
           <p><strong>Criador:</strong> {dataset.criadorCpf}</p>
           <p><strong>Criado em:</strong> {formatarData(dataset.criadoEm)}</p>
+
+          <div className="detalhe-fontes">
+            <p><strong>Fontes:</strong></p>
+            {fontes.length === 0 && <p>Nenhuma fonte cadastrada.</p>}
+            {fontes.length > 0 && (
+              <ul>
+                {fontes.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+            )}
+            <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+              <input
+                type="text"
+                value={novaFonte}
+                onChange={(e) => setNovaFonte(e.target.value)}
+                placeholder="Nova fonte"
+                style={{ flex: 1 }}
+              />
+              <button
+                type="button"
+                className="detalhe-btn-visualizar"
+                onClick={handleAdicionarFonte}
+                disabled={salvandoFonte || !novaFonte.trim()}
+              >
+                {salvandoFonte ? '...' : 'Adicionar'}
+              </button>
+            </div>
+          </div>
         </div>
 
         <hr className="detalhe-divisor" />
@@ -256,14 +306,14 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
                   )}
                 </div>
 
-                {/* <button
+                <button
                   type="button"
                   className="detalhe-btn-baixar"
                   onClick={() => handleDownload(v.numeroVersao)}
                   style={{ marginTop: '12px' }}
                 >
                   Baixar CSV
-                </button> */}
+                </button>
               </div>
             )}
           </div>

@@ -24,7 +24,6 @@ export default function CadastroDataset({ cpfCriador }: CadastroDatasetProps) {
     const payload: DatasetPayload = {
       nome,
       descricao,
-      fontes,
       criadorCpf: cpfCriador,
     };
 
@@ -33,7 +32,6 @@ export default function CadastroDataset({ cpfCriador }: CadastroDatasetProps) {
       setMensagem('Dataset criado com sucesso!');
       setNome('');
       setDescricao('');
-      setFontes('');
     } catch (error: any) {
       setMensagem(error.message || 'Erro ao criar o Dataset');
       setIsError(true);
@@ -71,13 +69,6 @@ export default function CadastroDataset({ cpfCriador }: CadastroDatasetProps) {
             required 
           />
 
-          <label htmlFor="dataset-fontes">Fontes</label>
-          <input 
-            id="dataset-fontes"
-            type="text" 
-            value={fontes} 
-            onChange={(e) => setFontes(e.target.value)} 
-          />
 
           <button type="submit" disabled={loading}>
             {loading ? 'Salvando...' : 'Salvar Dataset'}
