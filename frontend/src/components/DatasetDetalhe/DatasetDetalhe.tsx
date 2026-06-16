@@ -235,13 +235,13 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
                 >
                   {versaoSelecionada === v.numeroVersao ? 'Fechar' : 'Visualizar'}
                 </button>
-                <button
+                {/* <button
                   type="button"
                   className="detalhe-btn-baixar"
                   onClick={() => handleDownload(v.numeroVersao)}
                 >
                   Baixar
-                </button>
+                </button> */}
               </div>
             </div>
 
