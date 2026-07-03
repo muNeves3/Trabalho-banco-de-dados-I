@@ -74,6 +74,10 @@ function Home({ user, onLogout }: HomeProps) {
           </div>
 
           <div className="home-topbar-actions">
+          <button type="button" className="home-primary-button" onClick={() => navigate('/relatorios')}>
+              Relatórios
+            </button>
+
             <button type="button" className="home-primary-button" onClick={() => setFiltrandoMeus(!filtrandoMeus)}>
               {filtrandoMeus ? 'Todos os datasets' : 'Meus datasets'}
             </button>
