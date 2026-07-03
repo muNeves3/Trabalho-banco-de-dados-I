@@ -95,7 +95,7 @@ export default function CadastroVersao({ user }: CadastroVersaoProps) {
                   value={versaoBase}
                   onChange={(e) => setVersaoBase(e.target.value)}
                 >
-                  <option value="">Nenhuma (versão original)</option>
+                  {/* <option value="">Nenhuma (versão original)</option> */}
                   {versoes.map((v) => (
                     <option key={v.numeroVersao} value={v.numeroVersao}>
                       Versão {v.numeroVersao}

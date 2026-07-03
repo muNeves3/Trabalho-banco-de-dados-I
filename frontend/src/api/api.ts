@@ -297,3 +297,18 @@ export async function listarAcessosPorDataset(datasetId: number): Promise<Acesso
   if (!response.ok) throw new Error('Erro ao buscar acessos do dataset.');
   return response.json();
 }
+
+
+// ==================== RELATÓRIOS ====================
+
+export type Relatorio4 = {
+  total_downloads_mes: number;
+  total_visualizacao_mes: number;
+  mes: string;
+}
+
+export async function getRelatorio4(ano: number): Promise<Relatorio4[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/relatorio4/${ano}`);
+  if(!response.ok) throw new Error('Erro ao buscar relatório 4.');
+  return response.json();
+}

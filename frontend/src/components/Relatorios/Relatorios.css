@@ -1,0 +1,274 @@
+.relatorios-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.relatorios-shell {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.relatorios-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  background: #ffffff;
+  border: 1px solid #e6eaf2;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.relatorios-brand h1,
+.relatorios-section-header h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #0f172a;
+}
+
+.relatorios-kicker {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1f6feb;
+}
+
+.relatorios-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.relatorios-primary-button,
+.relatorios-profile-button,
+.relatorios-profile-dropdown button {
+  border: none;
+  cursor: pointer;
+}
+
+.relatorios-primary-button {
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: #1f6feb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.relatorios-profile-menu {
+  position: relative;
+}
+
+.relatorios-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #0f172a;
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+}
+
+.relatorios-profile-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #dbeafe;
+}
+
+.relatorios-profile-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.relatorios-profile-label strong,
+.relatorios-profile-label small {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.relatorios-profile-label small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.relatorios-profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 180px;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #e6eaf2;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  z-index: 10;
+}
+
+.relatorios-profile-dropdown button {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: transparent;
+  color: #0f172a;
+  text-align: left;
+  font-size: 14px;
+}
+
+.relatorios-profile-dropdown button:hover {
+  background: #f1f5f9;
+}
+
+.relatorios-content {
+  padding: 0 4px 24px;
+}
+
+.relatorios-section {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #e6eaf2;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05);
+}
+
+.relatorios-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.relatorios-year-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.relatorios-year-selector label {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.relatorios-year-select {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.relatorios-year-select:hover {
+  border-color: #94a3b8;
+}
+
+.relatorios-year-select:focus {
+  outline: none;
+  border-color: #1f6feb;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.1);
+}
+
+.relatorios-container {
+  display: grid;
+  gap: 24px;
+}
+
+.relatorios-card {
+  padding: 24px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e6eaf2;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+.relatorios-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.relatorios-card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.relatorios-card-badge {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.relatorios-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 840px) {
+  .relatorios-page {
+    padding: 16px;
+  }
+
+  .relatorios-topbar,
+  .relatorios-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .relatorios-topbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .relatorios-profile-button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .relatorios-profile-label strong,
+  .relatorios-profile-label small {
+    max-width: none;
+  }
+
+  .relatorios-section-header {
+    flex-direction: column;
+  }
+
+  .relatorios-year-selector {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .relatorios-year-select {
+    width: 100%;
+  }
+}
