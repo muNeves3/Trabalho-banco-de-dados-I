@@ -1,6 +1,6 @@
 package projeto.bd.dtos;
 
-public class RelatorioRankingDTO {
+public class Relatorio2DTO {
     private Integer datasetId;
     private String nomeDataset;
     private Integer totalDownloads;
