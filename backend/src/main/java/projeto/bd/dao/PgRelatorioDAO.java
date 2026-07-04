@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import projeto.bd.dtos.RelatorioRankingDTO;
+import projeto.bd.dtos.Relatorio2DTO;
+import projeto.bd.dtos.Relatorio5DTO;
 
 public class PgRelatorioDAO implements RelatorioDAO {
 
@@ -24,17 +25,29 @@ public class PgRelatorioDAO implements RelatorioDAO {
         "GROUP BY d.id, d.nome " +
         "ORDER BY total_acessos DESC;";
 
+    private static final String VERSOES_QUERY = 
+        "SELECT d.id AS dataset_id, d.nome AS nome_dataset, " +
+        "COUNT(v.numero_versao) AS total_versoes, " +
+        "CASE WHEN COUNT(v.numero_versao) > 1 " +
+        "THEN (MAX(v.criado_em) - MIN(v.criado_em)) / (COUNT(v.numero_versao) - 1) " +
+        "ELSE NULL END AS tempo_medio " +
+        "FROM sistema.dataset d " +
+        "JOIN sistema.versao_dataset v ON d.id = v.dataset_id " +
+        "GROUP BY d.id, d.nome " +
+        "ORDER BY total_versoes DESC;";
+        
+
     public PgRelatorioDAO(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public List<RelatorioRankingDTO> rankingDatasetsMaisAcessados() throws SQLException {
-        List<RelatorioRankingDTO> ranking = new ArrayList<>();
+    public List<Relatorio2DTO> rankingDatasetsMaisAcessados() throws SQLException {
+        List<Relatorio2DTO> ranking = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(RANKING_QUERY);
              ResultSet result = statement.executeQuery()) {
             while (result.next()) {
-                RelatorioRankingDTO dto = new RelatorioRankingDTO();
+                Relatorio2DTO dto = new Relatorio2DTO();
                 dto.setDatasetId(result.getInt("dataset_id"));
                 dto.setNomeDataset(result.getString("nome_dataset"));
                 dto.setTotalDownloads(result.getInt("total_downloads"));
@@ -45,6 +58,26 @@ public class PgRelatorioDAO implements RelatorioDAO {
         } catch (SQLException ex) {
             Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
             throw new SQLException("Erro ao gerar ranking de datasets.");
+        }
+        return ranking;
+    }
+
+    @Override
+    public List<Relatorio5DTO> versoesPorDatasets() throws SQLException {
+        List<Relatorio5DTO> ranking = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(VERSOES_QUERY);
+             ResultSet result = statement.executeQuery()) {
+            while (result.next()) {
+                Relatorio5DTO dto = new Relatorio5DTO();
+                dto.setDatasetId(result.getInt("dataset_id"));
+                dto.setNomeDataset(result.getString("nome_dataset"));
+                dto.setTotalVersoes(result.getInt("total_versoes"));
+                dto.setTempoMedio(result.getString("tempo_medio"));
+                ranking.add(dto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao gerar relatorio de datasets.");
         }
         return ranking;
     }

@@ -50,17 +50,16 @@ export default function RelatorioRanking() {
             <BarChart
               data={data}
               margin={{ top: 20, right: 30, left: 0, bottom: 20 }}
-              layout="vertical"
             >
               <XAxis
-                type="number"
+                type="category"
+                dataKey="nomeDataset"
                 tick={{ fill: '#64748b', fontSize: 12 }}
                 axisLine={{ stroke: '#e2e8f0' }}
                 tickLine={false}
               />
               <YAxis
-                type="category"
-                dataKey="nomeDataset"
+                type="number"
                 tick={{ fill: '#64748b', fontSize: 12 }}
                 width={120}
                 axisLine={{ stroke: '#e2e8f0' }}
@@ -91,13 +90,13 @@ export default function RelatorioRanking() {
                 dataKey="totalDownloads"
                 name="Downloads"
                 fill="#10b981"
-                radius={[0, 4, 4, 0]}
+                radius={[4, 4, 0, 0]}
               />
               <Bar
                 dataKey="totalVisualizacoes"
                 name="Visualizações"
                 fill="#8b5cf6"
-                radius={[0, 4, 4, 0]}
+                radius={[4, 4, 0, 0]}
               />
             </BarChart>
           </ResponsiveContainer>
