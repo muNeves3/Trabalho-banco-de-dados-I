@@ -6,10 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 import projeto.bd.dao.DAOFactory;
 import projeto.bd.dao.RelatorioDAO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
+import projeto.bd.dtos.Relatorio3DTO;
+import projeto.bd.dao.Relatorio4GraficoMesAnoDAO;
+import projeto.bd.models.Relatorio4GraficoMesAno;
 
 @RestController
 @RequestMapping("/api/graficos")
@@ -39,4 +43,51 @@ public class RelatorioController {
         }
     }
 
+    @GetMapping("/usuarios/contribuintes")
+    public ResponseEntity<?> relatorio3() {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            RelatorioDAO dao = daoFactory.getRelatorioDAO();
+            List<Relatorio3DTO> relatorio3 = dao.usuariosMaisContribuintes();
+            return ResponseEntity.ok(relatorio3);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Erro ao buscar relatório: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/usuarios/acessos")
+    public ResponseEntity<?> relatorio4() {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            RelatorioDAO dao = daoFactory.getRelatorioDAO();
+            List<Relatorio3DTO> relatorio4 = dao.usuariosMaisAcessos();
+            return ResponseEntity.ok(relatorio4);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Erro ao buscar relatório: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/usuarios/downloads")
+    public ResponseEntity<?> relatorio6() {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            RelatorioDAO dao = daoFactory.getRelatorioDAO();
+            List<Relatorio3DTO> relatorio6 = dao.usuariosMaisDownloads();
+            return ResponseEntity.ok(relatorio6);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Erro ao buscar relatório: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/relatorio4/{ano}")
+    public ResponseEntity<?> getRelatorio4GraficoMesAno(@PathVariable int ano) {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            Relatorio4GraficoMesAnoDAO dao = daoFactory.getRelatorio4GraficoMesAnoDAO();
+            List<Relatorio4GraficoMesAno> relatorio = dao.all(ano);
+            return ResponseEntity.ok(relatorio);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Erro ao buscar relatório: " + e.getMessage());
+        }
+    }
 }

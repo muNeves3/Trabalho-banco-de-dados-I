@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Relatorio4 from './Relatorio4/Relatorio4';
 import Relatorio2 from './Relatorio2/Relatorio2';
+import Relatorio3 from './Relatorio3/Relatorio3';
+import Relatorio4 from './Relatorio4/Relatorio4';
 import Relatorio5 from './Relatorio5/Relatorio5';
 import './Relatorios.css';
 
@@ -105,6 +106,16 @@ function Relatorios({ user, onLogout }: RelatoriosProps) {
                 </div>
                 <div className="relatorios-card-content">
                   <Relatorio2 />
+                </div>
+              </article>
+
+              <article className="relatorios-card">
+                <div className="relatorios-card-header">
+                  <h3>Relatório 3 - Usuários com mais contribuições, visualizações e downloads</h3>
+                  <span className="relatorios-card-badge">Ranking de Usuários</span>
+                </div>
+                <div className="relatorios-card-content">
+                  <Relatorio3 />
                 </div>
               </article>
 

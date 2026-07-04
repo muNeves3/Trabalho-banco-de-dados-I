@@ -12,7 +12,8 @@ import {
   Dataset, 
   VersaoDataset, 
   Feature,
-  uploadArquivo
+  uploadArquivo,
+  registrarAcesso
 } from '../../api/api';
 import './DatasetDetalhe.css';
 
@@ -110,6 +111,7 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
     setFeatureMsg('');
     try {
       await detalharVersao(datasetId, numeroVersao, user.cpf);
+      await registrarAcesso({datasetId, numeroVersao, usuarioCpf: user.cpf, tipoAcesso:'visualizacao'});
       const feats = await listarFeaturesPorVersao(datasetId, numeroVersao);
       setFeatures(feats);
     } catch (error) {
@@ -168,7 +170,7 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
       <div className="detalhe-card">
         <div className="detalhe-header">
           <h1>{dataset.nome}</h1>
-          <button type="button" className="link-button" onClick={() => navigate('/home')}>
+          <button type="button" className="detalhe-btn-nova-versao" onClick={() => navigate('/home')}>
             Voltar
           </button>
         </div>

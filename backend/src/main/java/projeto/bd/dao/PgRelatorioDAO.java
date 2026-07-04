@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
+import projeto.bd.dtos.Relatorio3DTO;
 
 public class PgRelatorioDAO implements RelatorioDAO {
 
@@ -35,7 +36,29 @@ public class PgRelatorioDAO implements RelatorioDAO {
         "JOIN sistema.versao_dataset v ON d.id = v.dataset_id " +
         "GROUP BY d.id, d.nome " +
         "ORDER BY total_versoes DESC;";
-        
+
+    private static final String USUARIOS_MAIS_CONTRIBUINTES = 
+    "SELECT u.nome, COUNT(v.numero_versao) as count FROM sistema.usuario u " +
+    "JOIN sistema.versao_dataset v ON v.criador_cpf = u.cpf " +
+    "GROUP BY u.cpf, u.nome " +
+    "ORDER BY COUNT(v.numero_versao) DESC " +
+    "LIMIT 5";
+
+    private static final String USUARIOS_MAIS_ACESSOS =
+    "SELECT u.nome, COUNT(*) as count FROM sistema.acesso_versao a " +
+    "JOIN sistema.usuario u ON u.cpf = a.usuario_cpf " +
+    "WHERE a.tipo_acesso = 'visualizacao' " +
+    "GROUP BY u.cpf, u.nome " +
+    "ORDER BY COUNT(*) DESC " +
+    "LIMIT 5";
+
+    private static final String USUARIOS_MAIS_DOWNLOADS =
+    "SELECT u.nome, COUNT(*) as count FROM sistema.acesso_versao a " +
+    "JOIN sistema.usuario u ON u.cpf = a.usuario_cpf " +
+    "WHERE a.tipo_acesso = 'download' " +
+    "GROUP BY u.cpf, u.nome " +
+    "ORDER BY COUNT(*) DESC " +
+    "LIMIT 5";
 
     public PgRelatorioDAO(Connection connection) {
         this.connection = connection;
@@ -78,6 +101,54 @@ public class PgRelatorioDAO implements RelatorioDAO {
         } catch (SQLException ex) {
             Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
             throw new SQLException("Erro ao gerar relatorio de datasets.");
+        }
+        return ranking;
+    }
+
+    @Override
+    public List<Relatorio3DTO> usuariosMaisContribuintes() throws SQLException {
+        List<Relatorio3DTO> ranking = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(USUARIOS_MAIS_CONTRIBUINTES);
+             ResultSet result = statement.executeQuery()) {
+            while (result.next()) {
+                Relatorio3DTO dto = new Relatorio3DTO(result.getString("nome"), result.getInt("count"));
+                ranking.add(dto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao gerar relatorio de usuarios mais contribuintes.");
+        }
+        return ranking;
+    }
+
+    @Override
+    public List<Relatorio3DTO> usuariosMaisAcessos() throws SQLException {
+        List<Relatorio3DTO> ranking = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(USUARIOS_MAIS_ACESSOS);
+             ResultSet result = statement.executeQuery()) {
+            while (result.next()) {
+                Relatorio3DTO dto = new Relatorio3DTO(result.getString("nome"), result.getInt("count"));
+                ranking.add(dto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao gerar relatorio de usuarios mais acessos.");
+        }
+        return ranking;
+    }
+
+    @Override
+    public List<Relatorio3DTO> usuariosMaisDownloads() throws SQLException {
+        List<Relatorio3DTO> ranking = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(USUARIOS_MAIS_DOWNLOADS);
+             ResultSet result = statement.executeQuery()) {
+            while (result.next()) {
+                Relatorio3DTO dto = new Relatorio3DTO(result.getString("nome"), result.getInt("count"));
+                ranking.add(dto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao gerar relatorio de usuarios mais downloads.");
         }
         return ranking;
     }

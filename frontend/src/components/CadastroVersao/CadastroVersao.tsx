@@ -76,7 +76,7 @@ export default function CadastroVersao({ user }: CadastroVersaoProps) {
       <div className="versao-card">
         <div className="versao-header">
           <h1>Nova Versão</h1>
-          <button type="button" className="versao-link-button" onClick={() => navigate(`/datasets/${datasetId}`)}>
+          <button type="button" className="detalhe-btn-nova-versao" onClick={() => navigate(`/datasets/${datasetId}`)}>
             Voltar
           </button>
         </div>
