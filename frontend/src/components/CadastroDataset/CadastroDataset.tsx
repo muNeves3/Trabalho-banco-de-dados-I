@@ -63,7 +63,7 @@ export default function CadastroDataset({ cpfCriador }: CadastroDatasetProps) {
       <div className="dataset-card">
         <div className="dataset-header">
           <h1>Novo Dataset</h1>
-          <button type="button" className="dataset-link-button" onClick={() => navigate('/home')}>
+          <button type="button" className="detalhe-btn-nova-versao" onClick={() => navigate('/home')}>
             Voltar
           </button>
         </div>

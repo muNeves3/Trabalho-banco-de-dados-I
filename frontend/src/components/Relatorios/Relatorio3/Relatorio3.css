@@ -1,0 +1,132 @@
+.relatorio3-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.relatorio3-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.relatorio3-button {
+  padding: 10px 16px;
+  border: 2px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #475569;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.relatorio3-button:hover {
+  border-color: #64748b;
+  background-color: #f8fafc;
+}
+
+.relatorio3-button.active {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.relatorio3-button:active {
+  transform: scale(0.98);
+}
+
+.relatorio3-error {
+  color: #c62828;
+  font-size: 14px;
+  padding: 12px;
+  background-color: #ffebee;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.relatorio3-loading {
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+  padding: 24px;
+}
+
+.relatorio3-empty {
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+  padding: 24px;
+}
+
+.relatorio3-content {
+  width: 100%;
+}
+
+.relatorio3-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.relatorio3-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.relatorio3-table thead {
+  background-color: #f1f5f9;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.relatorio3-table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.relatorio3-table tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.relatorio3-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.relatorio3-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.relatorio3-table tbody td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.relatorio3-position {
+  font-weight: 600;
+  color: #64748b;
+  width: 60px;
+  text-align: center;
+}
+
+.relatorio3-count {
+  font-weight: 600;
+  color: #3b82f6;
+  text-align: right;
+  width: 120px;
+}

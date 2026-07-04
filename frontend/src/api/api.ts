@@ -339,3 +339,26 @@ export async function getRelatorio5(): Promise<Relatorio5[]> {
   if (!response.ok) throw new Error('Erro ao buscar relatório 5.');
   return response.json();
 }
+
+export type Relatorio3Item = {
+  nome: string;
+  count: number;
+}
+
+export async function getRelatorio3Contribuintes(): Promise<Relatorio3Item[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/usuarios/contribuintes`);
+  if (!response.ok) throw new Error('Erro ao buscar usuários mais contribuintes.');
+  return response.json();
+}
+
+export async function getRelatorio3Acessos(): Promise<Relatorio3Item[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/usuarios/acessos`);
+  if (!response.ok) throw new Error('Erro ao buscar usuários com mais acessos.');
+  return response.json();
+}
+
+export async function getRelatorio3Downloads(): Promise<Relatorio3Item[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/usuarios/downloads`);
+  if (!response.ok) throw new Error('Erro ao buscar usuários com mais downloads.');
+  return response.json();
+}

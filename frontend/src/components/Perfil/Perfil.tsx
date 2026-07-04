@@ -63,7 +63,7 @@ function Perfil({ user, onUpdateUser, onLogout }: PerfilProps) {
       <div className="perfil-card">
         <div className="perfil-header">
           <h1>Perfil de Usuário</h1>
-          <button type="button" className="perfil-link-button" onClick={() => navigate('/home')}>
+          <button type="button" className="detalhe-btn-nova-versao" onClick={() => navigate('/home')}>
             Voltar
           </button>
         </div>

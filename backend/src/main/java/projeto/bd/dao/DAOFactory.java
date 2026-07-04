@@ -95,6 +95,8 @@ public abstract class DAOFactory implements AutoCloseable {
 
     public abstract RelatorioDAO getRelatorioDAO();
     
+    public abstract Relatorio4GraficoMesAnoDAO getRelatorio4GraficoMesAnoDAO();
+
     @Override
     public void close() throws SQLException {
         closeConnection();
