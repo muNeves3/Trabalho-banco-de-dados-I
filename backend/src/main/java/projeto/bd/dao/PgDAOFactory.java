@@ -43,10 +43,15 @@ public class PgDAOFactory extends DAOFactory {
     @Override
     public FonteDatasetDAO getFonteDatasetDAO() {
         return new PgFonteDatasetDAO(this.connection);
-    }
+        }
 
     @Override
     public Relatorio4GraficoMesAnoDAO getRelatorio4GraficoMesAnoDAO() {
         return new PgRelatorio4GraficoMesAnoDAO(this.connection);
+    }
+
+    @Override
+    public RelatorioDAO getRelatorioDAO() {
+        return new PgRelatorioDAO(this.connection);
     }
 }

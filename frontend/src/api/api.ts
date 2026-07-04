@@ -312,3 +312,30 @@ export async function getRelatorio4(ano: number): Promise<Relatorio4[]> {
   if(!response.ok) throw new Error('Erro ao buscar relatório 4.');
   return response.json();
 }
+
+export type Relatorio2 = {
+  datasetId: number;
+  nomeDataset: string;
+  totalDownloads: number;
+  totalVisualizacoes: number;
+  totalAcessos: number;
+}
+
+export async function getRelatorio2(): Promise<Relatorio2[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/ranking`);
+  if (!response.ok) throw new Error('Erro ao buscar relatório 2.');
+  return response.json();
+}
+
+export type Relatorio5 = {
+  datasetId: number;
+  nomeDataset: string;
+  totalVersoes: number;
+  tempoMedio: string;
+}
+
+export async function getRelatorio5(): Promise<Relatorio5[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/versoes`);
+  if (!response.ok) throw new Error('Erro ao buscar relatório 5.');
+  return response.json();
+}

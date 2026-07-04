@@ -1,0 +1,23 @@
+.relatorio2-container {
+  width: 100%;
+}
+
+.relatorio2-error {
+  color: #c62828;
+  font-size: 14px;
+}
+
+.relatorio2-loading {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.relatorio2-empty {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.relatorio2-chart-wrapper {
+  width: 100%;
+  min-height: 400px;
+}

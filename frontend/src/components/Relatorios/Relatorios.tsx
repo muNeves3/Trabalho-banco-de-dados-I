@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Relatorio4 from './Relatorio4/Relatorio4';
+import Relatorio2 from './Relatorio2/Relatorio2';
+import Relatorio5 from './Relatorio5/Relatorio5';
 import './Relatorios.css';
 
 type UserSession = {
@@ -98,11 +100,31 @@ function Relatorios({ user, onLogout }: RelatoriosProps) {
             <div className="relatorios-container">
               <article className="relatorios-card">
                 <div className="relatorios-card-header">
+                  <h3>Relatório 2 - Ranking de Datasets mais acessados</h3>
+                  <span className="relatorios-card-badge">Ranking</span>
+                </div>
+                <div className="relatorios-card-content">
+                  <Relatorio2 />
+                </div>
+              </article>
+
+              <article className="relatorios-card">
+                <div className="relatorios-card-header">
                   <h3>Relatório 4 - Downloads e Visualizações por mês</h3>
                   <span className="relatorios-card-badge">Análise de Acessos</span>
                 </div>
                 <div className="relatorios-card-content">
                   <Relatorio4 ano={selectedYear} />
+                </div>
+              </article>
+
+              <article className="relatorios-card">
+                <div className="relatorios-card-header">
+                  <h3>Relatório 5 - Versões de Datasets</h3>
+                  <span className="relatorios-card-badge">Análise de Versões</span>
+                </div>
+                <div className="relatorios-card-content">
+                  <Relatorio5 />
                 </div>
               </article>
             </div>
