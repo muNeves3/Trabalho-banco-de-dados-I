@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import projeto.bd.dtos.Relatorio1DTO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
 import projeto.bd.dtos.Relatorio3DTO;
@@ -60,8 +61,33 @@ public class PgRelatorioDAO implements RelatorioDAO {
     "ORDER BY COUNT(*) DESC " +
     "LIMIT 5";
 
+    private static final String RELATORIO_1_QUERY =
+    "SELECT " +
+    "(SELECT COUNT(*) FROM sistema.dataset) AS total_datasets, " +
+    "(SELECT COUNT(*) FROM sistema.versao_dataset) AS total_versoes, " +
+    "(SELECT COUNT(*) FROM sistema.usuario) AS usuarios_cadastrados, " +
+    "CAST((SELECT COUNT(*) FROM sistema.versao_dataset)::float / NULLIF((SELECT COUNT(*) FROM sistema.dataset), 0) AS decimal(10, 2)) AS media_versoes";
+
     public PgRelatorioDAO(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public Relatorio1DTO relatorio1() throws SQLException {
+        Relatorio1DTO relatorio = new Relatorio1DTO();
+        try (PreparedStatement statement = connection.prepareStatement(RELATORIO_1_QUERY);
+             ResultSet result = statement.executeQuery()) {
+            if (result.next()) {
+                relatorio.setTotalDatasets(result.getInt("total_datasets"));
+                relatorio.setTotalVersoes(result.getInt("total_versoes"));
+                relatorio.setUsuariosCadastrados(result.getInt("usuarios_cadastrados"));
+                relatorio.setMediaVersoesPorDataset(result.getDouble("media_versoes"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao gerar relatório 1.");
+        }
+        return relatorio;
     }
 
     @Override
