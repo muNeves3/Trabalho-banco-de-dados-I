@@ -375,3 +375,16 @@ export async function getRelatorio3Downloads(): Promise<Relatorio3Item[]> {
   if (!response.ok) throw new Error('Erro ao buscar usuários com mais downloads.');
   return response.json();
 }
+
+export type Relatorio6 = {
+  hora: number;
+  totalVisualizacoes: number;
+  totalDownloads: number;
+  totalAcessos: number;
+};
+
+export async function getRelatorio6(): Promise<Relatorio6[]> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/horarios`);
+  if (!response.ok) throw new Error('Erro ao buscar relatório 6.');
+  return response.json();
+}

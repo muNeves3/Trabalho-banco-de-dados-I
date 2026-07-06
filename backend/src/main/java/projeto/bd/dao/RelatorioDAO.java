@@ -5,6 +5,7 @@ import java.util.List;
 import projeto.bd.dtos.Relatorio1DTO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
+import projeto.bd.dtos.Relatorio6DTO;
 import projeto.bd.dtos.Relatorio3DTO;
 
 public interface RelatorioDAO {
@@ -14,4 +15,5 @@ public interface RelatorioDAO {
     public List<Relatorio3DTO> usuariosMaisContribuintes() throws SQLException;
     public List<Relatorio3DTO> usuariosMaisAcessos() throws SQLException;
     public List<Relatorio3DTO> usuariosMaisDownloads() throws SQLException;
+    public List<Relatorio6DTO> horariosPicoAcesso() throws SQLException;
 }

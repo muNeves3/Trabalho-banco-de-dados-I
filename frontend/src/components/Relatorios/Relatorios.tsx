@@ -4,6 +4,7 @@ import Relatorio2 from './Relatorio2/Relatorio2';
 import Relatorio3 from './Relatorio3/Relatorio3';
 import Relatorio4 from './Relatorio4/Relatorio4';
 import Relatorio5 from './Relatorio5/Relatorio5';
+import Relatorio6 from './Relatorio6/Relatorio6';
 import './Relatorios.css';
 import Relatorio1 from './Relatorio1/Relatorio1';
 
@@ -151,6 +152,16 @@ function Relatorios({ user, onLogout }: RelatoriosProps) {
                   <Relatorio5 />
                 </div>
               </article>
+
+              <article className="relatorios-card">
+              <div className="relatorios-card-header">
+                <h3>Relatório 6 - Horários de Pico de Acesso</h3>
+                <span className="relatorios-card-badge">Distribuição Horária</span>
+              </div>
+              <div className="relatorios-card-content">
+                <Relatorio6 />
+              </div>
+            </article>
             </div>
           </section>
         </main>

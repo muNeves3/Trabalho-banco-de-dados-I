@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import projeto.bd.dtos.Relatorio1DTO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
+import projeto.bd.dtos.Relatorio6DTO;
 import projeto.bd.dtos.Relatorio3DTO;
 
 public class PgRelatorioDAO implements RelatorioDAO {
@@ -61,6 +62,15 @@ public class PgRelatorioDAO implements RelatorioDAO {
     "ORDER BY COUNT(*) DESC " +
     "LIMIT 5";
 
+    private static final String HORARIOS_QUERY =
+    "SELECT EXTRACT(HOUR FROM acessado_em) AS hora, " +
+    "COUNT(CASE WHEN tipo_acesso = 'visualizacao' THEN 1 END) AS total_visualizacoes, " +
+    "COUNT(CASE WHEN tipo_acesso = 'download' THEN 1 END) AS total_downloads, " +
+    "COUNT(*) AS total_acessos " +
+    "FROM sistema.acesso_versao " +
+    "GROUP BY EXTRACT(HOUR FROM acessado_em) " +
+    "ORDER BY hora;";
+    
     private static final String RELATORIO_1_QUERY =
     "SELECT " +
     "(SELECT COUNT(*) FROM sistema.dataset) AS total_datasets, " +
@@ -177,5 +187,25 @@ public class PgRelatorioDAO implements RelatorioDAO {
             throw new SQLException("Erro ao gerar relatorio de usuarios mais downloads.");
         }
         return ranking;
+    }
+
+    @Override
+    public List<Relatorio6DTO> horariosPicoAcesso() throws SQLException {
+        List<Relatorio6DTO> lista = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(HORARIOS_QUERY);
+            ResultSet result = statement.executeQuery()) {
+            while (result.next()) {
+                Relatorio6DTO dto = new Relatorio6DTO();
+                dto.setHora(result.getInt("hora"));
+                dto.setTotalVisualizacoes(result.getInt("total_visualizacoes"));
+                dto.setTotalDownloads(result.getInt("total_downloads"));
+                dto.setTotalAcessos(result.getInt("total_acessos"));
+                lista.add(dto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PgRelatorioDAO.class.getName()).log(Level.SEVERE, "DAO", ex);
+            throw new SQLException("Erro ao gerar relatório de horários de pico.");
+        }
+        return lista;
     }
 }

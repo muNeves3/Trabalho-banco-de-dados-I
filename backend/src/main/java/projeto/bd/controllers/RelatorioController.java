@@ -12,6 +12,7 @@ import projeto.bd.dao.RelatorioDAO;
 import projeto.bd.dtos.Relatorio1DTO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
+import projeto.bd.dtos.Relatorio6DTO;
 import projeto.bd.dtos.Relatorio3DTO;
 import projeto.bd.dao.Relatorio4GraficoMesAnoDAO;
 import projeto.bd.models.Relatorio4GraficoMesAno;
@@ -81,7 +82,7 @@ public class RelatorioController {
     }
 
     @GetMapping("/usuarios/downloads")
-    public ResponseEntity<?> relatorio6() {
+    public ResponseEntity<?> relatorio3Downloads() {
         try (DAOFactory daoFactory = DAOFactory.getInstance()) {
             RelatorioDAO dao = daoFactory.getRelatorioDAO();
             List<Relatorio3DTO> relatorio6 = dao.usuariosMaisDownloads();
@@ -101,6 +102,18 @@ public class RelatorioController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                                  .body("Erro ao buscar relatório: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/horarios")
+    public ResponseEntity<?> relatorio6() {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            RelatorioDAO dao = daoFactory.getRelatorioDAO();
+            List<Relatorio6DTO> relatorio6 = dao.horariosPicoAcesso();
+            return ResponseEntity.ok(relatorio6);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body("Erro ao buscar relatório: " + e.getMessage());
         }
     }
 }
