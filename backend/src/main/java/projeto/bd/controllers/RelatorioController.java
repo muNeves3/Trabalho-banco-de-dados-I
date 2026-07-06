@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import projeto.bd.dao.DAOFactory;
 import projeto.bd.dao.RelatorioDAO;
+import projeto.bd.dtos.Relatorio1DTO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
 import projeto.bd.dtos.Relatorio3DTO;
@@ -18,6 +19,18 @@ import projeto.bd.models.Relatorio4GraficoMesAno;
 @RestController
 @RequestMapping("/api/graficos")
 public class RelatorioController {
+    
+    @GetMapping("/relatorio1")
+    public ResponseEntity<?> relatorio1() {
+        try (DAOFactory daoFactory = DAOFactory.getInstance()) {
+            RelatorioDAO dao = daoFactory.getRelatorioDAO();
+            Relatorio1DTO relatorio1 = dao.relatorio1();
+            return ResponseEntity.ok(relatorio1);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Erro ao buscar relatório: " + e.getMessage());
+        }
+    }
     
     @GetMapping("/ranking")
     public ResponseEntity<?> relatorio2() {
