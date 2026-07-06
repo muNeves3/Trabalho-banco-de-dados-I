@@ -7,6 +7,41 @@
   font-size: 14px;
 }
 
+.relatorio2-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.relatorio2-button {
+  padding: 10px 16px;
+  border: 2px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #475569;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.relatorio2-button:hover {
+  border-color: #64748b;
+  background-color: #f8fafc;
+}
+
+.relatorio2-button.active {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.relatorio2-button:active {
+  transform: scale(0.98);
+}
+
 .relatorio2-loading {
   color: #64748b;
   font-size: 14px;
