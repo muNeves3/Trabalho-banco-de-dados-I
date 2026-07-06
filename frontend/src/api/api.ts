@@ -334,9 +334,22 @@ export type Relatorio5 = {
   tempoMedio: string;
 }
 
+export type Relatorio1 = {
+  totalDatasets: number;
+  totalVersoes: number;
+  usuariosCadastrados: number;
+  mediaVersoesPorDataset: number;
+}
+
 export async function getRelatorio5(): Promise<Relatorio5[]> {
   const response = await fetch(`${API_BASE_URL}/api/graficos/versoes`);
   if (!response.ok) throw new Error('Erro ao buscar relatório 5.');
+  return response.json();
+}
+
+export async function getRelatorio1(): Promise<Relatorio1> {
+  const response = await fetch(`${API_BASE_URL}/api/graficos/relatorio1`);
+  if (!response.ok) throw new Error('Erro ao buscar relatório 1.');
   return response.json();
 }
 

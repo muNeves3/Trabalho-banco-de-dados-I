@@ -6,6 +6,7 @@ import Relatorio4 from './Relatorio4/Relatorio4';
 import Relatorio5 from './Relatorio5/Relatorio5';
 import Relatorio6 from './Relatorio6/Relatorio6';
 import './Relatorios.css';
+import Relatorio1 from './Relatorio1/Relatorio1';
 
 type UserSession = {
   cpf: string;
@@ -97,6 +98,18 @@ function Relatorios({ user, onLogout }: RelatoriosProps) {
                   ))}
                 </select>
               </div>
+            </div>
+
+            <div className="relatorios-container">
+              <article className="relatorios-card">
+                <div className="relatorios-card-header">
+                  <h3>Relatório 1 - Dados gerais do sistema</h3>
+                  <span className="relatorios-card-badge">Geral</span>
+                </div>
+                <div className="relatorios-card-content">
+                  <Relatorio1 />
+                </div>
+              </article>
             </div>
 
             <div className="relatorios-container">

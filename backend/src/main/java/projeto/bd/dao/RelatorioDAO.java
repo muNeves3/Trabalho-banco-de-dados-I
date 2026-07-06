@@ -2,12 +2,14 @@ package projeto.bd.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import projeto.bd.dtos.Relatorio1DTO;
 import projeto.bd.dtos.Relatorio2DTO;
 import projeto.bd.dtos.Relatorio5DTO;
 import projeto.bd.dtos.Relatorio6DTO;
 import projeto.bd.dtos.Relatorio3DTO;
 
 public interface RelatorioDAO {
+    public Relatorio1DTO relatorio1() throws SQLException;
     public List<Relatorio2DTO> rankingDatasetsMaisAcessados() throws SQLException;
     public List<Relatorio5DTO> versoesPorDatasets() throws SQLException;
     public List<Relatorio3DTO> usuariosMaisContribuintes() throws SQLException;
