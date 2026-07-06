@@ -11,17 +11,21 @@ import {
 import { getRelatorio2, Relatorio2 } from '../../../api/api';
 import './Relatorio2.css';
 
+type TipoVisualizacao = 'proporcao' | 'acessos' | 'downloads';
+
 export default function RelatorioRanking() {
   const [data, setData] = useState<Relatorio2[]>([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [tipoVisualizacao, setTipoVisualizacao] = useState<TipoVisualizacao>('proporcao');
+  
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       setErrorMessage('');
       try {
-        const response = await getRelatorio2();
+        const response = await getRelatorio2();  
         setData(response);
       } catch (error: any) {
         const message = error instanceof Error ? error.message : 'Erro ao buscar dados do relatório.';
@@ -34,8 +38,65 @@ export default function RelatorioRanking() {
     fetchData();
   }, []);
 
+  const getTitulo = (): string => {
+    switch (tipoVisualizacao) {
+      case 'proporcao':
+        return 'Proporção visualização / download por dataset';
+      case 'acessos':
+        return 'Datasets com Mais Visualizações';
+      case 'downloads':
+        return 'Datasets com Mais Downloads';
+    }
+  };
+
+  const getLabel = (): string => {
+    switch (tipoVisualizacao) {
+      case 'proporcao':
+        return 'Proporção';
+      case 'acessos':
+        return 'Visualizações';
+      case 'downloads':
+        return 'Downloads';
+    }
+  };
+
+  const getDadosOrdenados = (): Relatorio2[] => {
+    switch (tipoVisualizacao) {
+      case 'acessos':
+        return [...data].sort((a, b) => b.totalVisualizacoes - a.totalVisualizacoes);
+      case 'downloads':
+        return [...data].sort((a, b) => b.totalDownloads - a.totalDownloads);
+      default:
+        return [...data].sort((a, b) => b.totalAcessos - a.totalAcessos);
+    }
+  };
+
   return (
     <div className="relatorio2-container">
+      <div className="relatorio2-buttons">
+        <button
+          type="button"
+          className={`relatorio2-button ${tipoVisualizacao === 'proporcao' ? 'active' : ''}`}
+          onClick={() => setTipoVisualizacao('proporcao')}
+        >
+          Proporção
+        </button>
+        <button
+          type="button"
+          className={`relatorio2-button ${tipoVisualizacao === 'acessos' ? 'active' : ''}`}
+          onClick={() => setTipoVisualizacao('acessos')}
+        >
+          Visualizações
+        </button>
+        <button
+          type="button"
+          className={`relatorio2-button ${tipoVisualizacao === 'downloads' ? 'active' : ''}`}
+          onClick={() => setTipoVisualizacao('downloads')}
+        >
+          Downloads
+        </button>
+      </div>
+      <h4>{getTitulo()}</h4>
       {errorMessage && <p className="relatorio2-error">{errorMessage}</p>}
 
       {!errorMessage && loading && <p className="relatorio2-loading">Carregando dados...</p>}
@@ -48,7 +109,7 @@ export default function RelatorioRanking() {
         <div className="relatorio2-chart-wrapper">
           <ResponsiveContainer width="100%" height={400}>
             <BarChart
-              data={data}
+              data={getDadosOrdenados()}
               margin={{ top: 20, right: 30, left: 0, bottom: 20 }}
             >
               <XAxis
@@ -86,18 +147,22 @@ export default function RelatorioRanking() {
                 wrapperStyle={{ paddingBottom: '20px', fontSize: '14px', color: '#475569' }}
               />
 
-              <Bar
-                dataKey="totalDownloads"
-                name="Downloads"
-                fill="#10b981"
-                radius={[4, 4, 0, 0]}
-              />
-              <Bar
-                dataKey="totalVisualizacoes"
-                name="Visualizações"
-                fill="#8b5cf6"
-                radius={[4, 4, 0, 0]}
-              />
+              {tipoVisualizacao !== 'acessos' && (
+                <Bar
+                  dataKey="totalDownloads"
+                  name="Downloads"
+                  fill="#10b981"
+                  radius={[4, 4, 0, 0]}
+                />
+              )}
+              {tipoVisualizacao !== 'downloads' && (
+                <Bar
+                  dataKey="totalVisualizacoes"
+                  name="Visualizações"
+                  fill="#8b5cf6"
+                  radius={[4, 4, 0, 0]}
+                />
+              )}
             </BarChart>
           </ResponsiveContainer>
         </div>
