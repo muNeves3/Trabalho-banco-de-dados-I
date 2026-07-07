@@ -26,7 +26,8 @@ public class PgRelatorioDAO implements RelatorioDAO {
         "FROM sistema.dataset d " +
         "LEFT JOIN sistema.acesso_versao a ON d.id = a.dataset_id " +
         "GROUP BY d.id, d.nome " +
-        "ORDER BY total_acessos DESC;";
+        "ORDER BY total_acessos DESC " +
+        "LIMIT 7;";
 
     private static final String VERSOES_QUERY = 
         "SELECT d.id AS dataset_id, d.nome AS nome_dataset, " +

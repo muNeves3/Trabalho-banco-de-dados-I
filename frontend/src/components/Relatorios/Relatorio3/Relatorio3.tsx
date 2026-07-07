@@ -131,7 +131,7 @@ export default function Relatorio3() {
                       dataKey="count"
                       position="right"
                       fill="#ffffff"
-                      formatter={(value) => `${value} visualizações`}
+                      formatter={(value) => `${value} ${getLabel()}`}
                       style={{ fontSize: '14px', fontWeight: 500 }}
                     />
                   </Bar>
