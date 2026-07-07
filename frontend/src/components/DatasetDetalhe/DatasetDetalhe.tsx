@@ -111,7 +111,7 @@ function DatasetDetalhe({ user }: DatasetDetalheProps) {
     setFeatureMsg('');
     try {
       await detalharVersao(datasetId, numeroVersao, user.cpf);
-      await registrarAcesso({datasetId, numeroVersao, usuarioCpf: user.cpf, tipoAcesso:'visualizacao'});
+      // await registrarAcesso({datasetId, numeroVersao, usuarioCpf: user.cpf, tipoAcesso:'visualizacao'});
       const feats = await listarFeaturesPorVersao(datasetId, numeroVersao);
       setFeatures(feats);
     } catch (error) {
