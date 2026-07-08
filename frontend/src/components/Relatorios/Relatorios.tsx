@@ -138,7 +138,23 @@ function Relatorios({ user, onLogout }: RelatoriosProps) {
                   <h3>Relatório 4 - Downloads e Visualizações por mês</h3>
                   <span className="relatorios-card-badge">Análise de Acessos</span>
                 </div>
-                <div className="relatorios-card-content">
+                <div className="relatorios-year-selector">
+                <label htmlFor="year-select">Selecionar ano:</label>
+                <select
+                  id="year-select"
+                  value={selectedYear}
+                  onChange={(e) => setSelectedYear(parseInt(e.target.value))}
+                  className="relatorios-year-select"
+                >
+                  {availableYears.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="relatorios-card-content">
                   <Relatorio4 ano={selectedYear} />
                 </div>
               </article>

@@ -27,7 +27,7 @@ public class PgRelatorioDAO implements RelatorioDAO {
         "LEFT JOIN sistema.acesso_versao a ON d.id = a.dataset_id " +
         "GROUP BY d.id, d.nome " +
         "ORDER BY total_acessos DESC " +
-        "LIMIT 7;";
+        "FETCH FIRST 7 ROWS ONLY;";
 
     private static final String VERSOES_QUERY = 
         "SELECT d.id AS dataset_id, d.nome AS nome_dataset, " +
@@ -45,7 +45,7 @@ public class PgRelatorioDAO implements RelatorioDAO {
     "JOIN sistema.versao_dataset v ON v.criador_cpf = u.cpf " +
     "GROUP BY u.cpf, u.nome " +
     "ORDER BY COUNT(v.numero_versao) DESC " +
-    "LIMIT 5";
+    "FETCH FIRST 5 ROWS ONLY";
 
     private static final String USUARIOS_MAIS_ACESSOS =
     "SELECT u.nome, COUNT(*) as count FROM sistema.acesso_versao a " +
@@ -53,7 +53,7 @@ public class PgRelatorioDAO implements RelatorioDAO {
     "WHERE a.tipo_acesso = 'visualizacao' " +
     "GROUP BY u.cpf, u.nome " +
     "ORDER BY COUNT(*) DESC " +
-    "LIMIT 5";
+    "FETCH FIRST 5 ROWS ONLY";
 
     private static final String USUARIOS_MAIS_DOWNLOADS =
     "SELECT u.nome, COUNT(*) as count FROM sistema.acesso_versao a " +
@@ -61,7 +61,7 @@ public class PgRelatorioDAO implements RelatorioDAO {
     "WHERE a.tipo_acesso = 'download' " +
     "GROUP BY u.cpf, u.nome " +
     "ORDER BY COUNT(*) DESC " +
-    "LIMIT 5";
+    "FETCH FIRST 5 ROWS ONLY";
 
     private static final String HORARIOS_QUERY =
     "SELECT EXTRACT(HOUR FROM acessado_em) AS hora, " +
